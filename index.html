@@ -27,7 +27,6 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Not Just Clicks — Social Media Ads That Convert</title>
-
   <style>
     body {
       margin: 0;
@@ -43,13 +42,12 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 
     .title-group {
       display: inline-block;
-      white-space: nowrap;
       line-height: 1.4em;
       margin-bottom: 0.2em;
     }
 
     .title-group span {
-      display: inline;
+      display: block;
       font-size: 2.8em;
       font-weight: 700;
       letter-spacing: 1px;
@@ -72,7 +70,10 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     }
 
     @media (max-width: 600px) {
-      .title-group span { font-size: 2em; }
+      .title-group span {
+        font-size: 2em;
+        letter-spacing: 0.5px;
+      }
       h2 { font-size: 1.2em; }
       .arrow-up { font-size: 1.8em; }
       .access-message { font-size: 1.2em; }
@@ -85,32 +86,33 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       padding: 1em 1em 3em;
     }
 
+    /* electric-frame: red glow instead of yellow */
     .electric-frame {
       position: relative;
       padding: 10px;
       border-radius: 12px;
-      margin: 0 auto;       /* removed top margin so video sits higher */
+      margin: 0 auto;   /* pulled up, removes top gap */
       background-color: #000;
       box-shadow:
-        0 0 10px #fdf200,
-        0 0 16px #ffe600,
-        0 0 22px #fff000;
-      animation: flicker 1.5s infinite alternate;
+        0 0 10px #ff4444,
+        0 0 16px #cc0000,
+        0 0 22px #990000;
+      animation: flicker-red 1.5s infinite alternate;
       max-width: 800px;
     }
 
-    @keyframes flicker {
+    @keyframes flicker-red {
       0% {
         box-shadow:
-          0 0 8px #ffeb3b,
-          0 0 12px #fdf200,
-          0 0 18px #ffe600;
+          0 0 8px #ff4444,
+          0 0 12px #cc0000,
+          0 0 18px #990000;
       }
       100% {
         box-shadow:
-          0 0 12px #fdf200,
-          0 0 18px #fff000,
-          0 0 24px #ffeb3b;
+          0 0 12px #cc0000,
+          0 0 18px #990000,
+          0 0 24px #ff4444;
       }
     }
 
@@ -258,7 +260,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 <body>
   <header>
     <div class="title-group">
-      <span>Not Just Clicks.</span><span>Ads That Convert.</span>
+      <span>Not Just Clicks.</span>
+      <span>Ads That Convert.</span>
     </div>
     <h2>Strategy → Traffic → Measurable ROI</h2>
     <!-- course-bar removed -->
@@ -290,7 +293,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     <div class="arrow-up">↑↑↑↑</div>
     <div class="access-message">Play 🔁in your regular browser</div>
 
-  
+      
       <!-- Reviews Loader Under video -->
 <div id="reviews-container" style="margin-top:1.5em;"></div>
 

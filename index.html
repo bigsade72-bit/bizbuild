@@ -1181,38 +1181,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </div>
 <!-- 🌟 END PRODUCT GRID 🌟 -->
 
-    <!-- Shared dropdown toggle script -->
-<script>
-  function toggleDetails(trigger) {
-    const content = trigger.nextElementSibling;
-    content.style.display = content.style.display === 'none'
-      ? 'block'
-      : 'none';
-  }
-</script>
-<!-- 🌟 🌟🔴🩰🔵End PRODUCT GRID 🌟🌟🔴🩰🔵 -->
 
-
-    
-    
-<!-- 🌟🔴🩰🔵Begin TV style GRID & SCRIPT 🔴🩰🔵🌟 -->
-   
-<!-- TV‐Style Carousel & Scale Down -->
-<style>
-  .product-grid {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    transform: scale(0.6);
-    transform-origin: top left;
-    -webkit-overflow-scrolling: touch;
-  }
-  .product-card {
-    scroll-snap-align: start;
-  }
-</style>
-
-<!-- 🌟 BEGIN PRODUCT GRID 🌟 -->
+  <!-- 🌟🔴🩰🔵 BEGIN PRODUCT GRID  Carousel🔴🩰🔵🌟 -->
 <div class="product-grid" style="
   display: flex;
   flex-wrap: wrap;
@@ -1440,7 +1410,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
   </div>
 
 </div>
-<!-- END PRODUCT GRID  -->
+<!-- 🌟 END PRODUCT GRID 🌟 -->
+
 <!-- Shared dropdown toggle script -->
 <script>
   function toggleDetails(trigger) {
@@ -1450,22 +1421,19 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       : 'none';
   }
 </script>
+<!-- 🌟🔴🩰🔵 END GRID & SCRIPT 🔴🩰🔵🌟 -->
 
-<!-- Auto‐Paging Carousel Script -->
+<!-- Auto‐scroll TV‐Style Carousel Script -->
 <script>
   const grid = document.querySelector('.product-grid');
-  const cards = grid.querySelectorAll('.product-card');
-  const gap = parseInt(getComputedStyle(grid).gap);
-  const cardWidth = cards[0].offsetWidth + gap;
-  let index = 0;
-
   setInterval(() => {
-    index = (index + 1) % cards.length;
-    grid.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
-  }, 3000);
+    grid.scrollLeft += 1;
+    if (grid.scrollLeft >= grid.scrollWidth - grid.clientWidth) {
+      grid.scrollLeft = 0;
+    }
+  }, 20);
 </script>
-
- <!--End 🌟 END PRODUCT GRID 🌟Carousel -->
+</style> <!--End 🌟 END PRODUCT GRID 🌟Carousel -->
 
 
     

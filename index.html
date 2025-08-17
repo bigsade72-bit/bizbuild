@@ -319,7 +319,6 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     
 <!-- Reviews Loader Under video -->
       <div id="reviews-container" style="margin-top:1.5em;"></div>
-    
 <!-- Reviews loader script -->
 <script>
   (async () => {
@@ -348,15 +347,6 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     const wrapper = document.createElement('div');
     wrapper.style = 'border-top:1px solid #444; padding-top:1em; font-family:inherit; color:#ccc;';
     wrapper.innerHTML = `
-      <div style="margin-bottom:0.5em;">
-        <span style="
-          background:#2e7d32; color:#fff;
-          padding:0.3em 0.8em; border-radius:20px;
-          font-size:0.9em; font-weight:bold;
-        ">
-          Purchased by students worldwide
-        </span>
-      </div>
       <h3 style="margin:0.8em 0 0.6em; color:#fff; font-weight:600;">
         <span style="color:#FFD700; font-size:1.2em;">★</span>
         ${avg} (${count} review${count>1?'s':''})
@@ -415,109 +405,109 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </script>
 <!-- Reviews loader script End -->
     
-  <script>
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
+<script>
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(tag);
 
-    let player,
-        started    = false,
-        pauseTime  = 173,  // 2:53
-        signUpTime = 266,  // 4:26
-        intervalId,
-        flags = { form: false, signUp: false };
+  let player,
+      started    = false,
+      pauseTime  = 173,  // 2:53
+      signUpTime = 266,  // 4:26
+      intervalId,
+      flags = { form: false, signUp: false };
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        host: 'https://www.youtube-nocookie.com',
-        videoId: 'KcRib2gRo2s',
-        playerVars: {
-          controls: 0,
-          disablekb: 1,
-          modestbranding: 1,
-          rel: 0,
-          iv_load_policy: 3,
-          enablejsapi: 1,
-          autoplay: 0
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange
-        }
-      });
-    }
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      host: 'https://www.youtube-nocookie.com',
+      videoId: 'KcRib2gRo2s',
+      playerVars: {
+        controls: 0,
+        disablekb: 1,
+        modestbranding: 1,
+        rel: 0,
+        iv_load_policy: 3,
+        enablejsapi: 1,
+        autoplay: 0
+      },
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange
+      }
+    });
+  }
 
-    function onPlayerReady() {
-      const placeholder = document.getElementById('placeholder');
-      const playBtn     = document.getElementById('playBtn');
-      const clickOv     = document.querySelector('.click-overlay');
-      const playerDiv   = document.getElementById('player');
+  function onPlayerReady() {
+    const placeholder = document.getElementById('placeholder');
+    const playBtn     = document.getElementById('playBtn');
+    const clickOv     = document.querySelector('.click-overlay');
+    const playerDiv   = document.getElementById('player');
 
-      clickOv.addEventListener('click', () => {
-        if (!started) {
-          started = true;
-          placeholder.style.display = 'none';
-          playBtn.style.display     = 'none';
-          playerDiv.style.display   = 'block';
-          player.playVideo();
-        } else if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-          player.pauseVideo();
-        } else {
-          player.playVideo();
-        }
-      });
-    }
-
-    function onPlayerStateChange(event) {
-      const placeholder = document.getElementById('placeholder');
-      const playBtn     = document.getElementById('playBtn');
-      if (event.data === YT.PlayerState.PLAYING) {
+    clickOv.addEventListener('click', () => {
+      if (!started) {
+        started = true;
         placeholder.style.display = 'none';
         playBtn.style.display     = 'none';
-        intervalId = setInterval(checkMilestones, 500);
-      } else if (event.data === YT.PlayerState.PAUSED) {
-        placeholder.style.display = 'block';
-        playBtn.style.display     = 'flex';
-        clearInterval(intervalId);
-      }
-    }
-
-    function checkMilestones() {
-      const t = player.getCurrentTime();
-      if (!flags.form && t >= pauseTime) {
-        flags.form = true;
-        clearInterval(intervalId);
-        player.pauseVideo();
-        document.getElementById('popup-form').style.display = 'flex';
-      }
-      if (!flags.signUp && t >= signUpTime) {
-        flags.signUp = true;
-        document.getElementById('signUpBtn').style.display = 'block';
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('submitForm').addEventListener('click', () => {
-        document.getElementById('popup-form').style.display = 'none';
+        playerDiv.style.display   = 'block';
         player.playVideo();
-
-        const formData = new FormData();
-        formData.append('name', document.querySelector('#popup-form input[name="name"]').value);
-        formData.append('email', document.querySelector('#popup-form input[name="email"]').value);
-
-        fetch(
-          'https://script.google.com/macros/s/AKfycbxE9j8YIo-M_VtpwzoylRaVIbO5gUI6KSv0IFOtkzRFRq6LGVNUheh4HG5AqY3-Obuc/exec',
-          { method: 'POST', body: formData, mode: 'no-cors' }
-        );
-      });
-
-      document.getElementById('signUpBtn').addEventListener('click', () => {
-  adsStep = 0;
-  renderAdsStep();
-  document.getElementById('ads').style.display = 'block';
+      } else if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
     });
+  }
+
+  function onPlayerStateChange(event) {
+    const placeholder = document.getElementById('placeholder');
+    const playBtn     = document.getElementById('playBtn');
+    if (event.data === YT.PlayerState.PLAYING) {
+      placeholder.style.display = 'none';
+      playBtn.style.display     = 'none';
+      intervalId = setInterval(checkMilestones, 500);
+    } else if (event.data === YT.PlayerState.PAUSED) {
+      placeholder.style.display = 'block';
+      playBtn.style.display     = 'flex';
+      clearInterval(intervalId);
+    }
+  }
+
+  function checkMilestones() {
+    const t = player.getCurrentTime();
+    if (!flags.form && t >= pauseTime) {
+      flags.form = true;
+      clearInterval(intervalId);
+      player.pauseVideo();
+      document.getElementById('popup-form').style.display = 'flex';
+    }
+    if (!flags.signUp && t >= signUpTime) {
+      flags.signUp = true;
+      document.getElementById('signUpBtn').style.display = 'block';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('submitForm').addEventListener('click', () => {
+      document.getElementById('popup-form').style.display = 'none';
+      player.playVideo();
+
+      const formData = new FormData();
+      formData.append('name', document.querySelector('#popup-form input[name="name"]').value);
+      formData.append('email', document.querySelector('#popup-form input[name="email"]').value);
+
+      fetch(
+        'https://script.google.com/macros/s/AKfycbxE9j8YIo-M_VtpwzoylRaVIbO5gUI6KSv0IFOtkzRFRq6LGVNUheh4HG5AqY3-Obuc/exec',
+        { method: 'POST', body: formData, mode: 'no-cors' }
+      );
     });
-  </script>
+
+    document.getElementById('signUpBtn').addEventListener('click', () => {
+      adsStep = 0;
+      renderAdsStep();
+      document.getElementById('ads').style.display = 'block';
+    });
+  });
+</script>
 </body>
 </html>
 
@@ -683,7 +673,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     <div class="details-content"
          style="display:none; margin-top:10px; text-align:left; background:#111; color:#fff; padding:10px; border-radius:4px; border:1px solid #aa0000;">
       <p style="margin-bottom:1em;">
-        A taste of what it's like to work with us. A hands-on setup experience where we help you launch your next campaign. You provide your visuals/creatives and we will remix it to recreate an ad that will drive more traffic. We also configure your pixel, targeting, and ad structure — then hand it off with 7-day support.
+        A taste of what it's like to work with us. A hands-on setup experience where we help you launch your next campaign. You provide your visuals/creatives and we will remix it to recreate an ad that will drive more traffic. We also configure your pixel, targeting, and ad structure — then hand it off with 7-day email support.
       </p>
       <ul style="list-style:none; padding-left:0; margin:0;">
         <li style="margin-bottom:0.5em; color:#fff;">

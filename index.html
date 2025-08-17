@@ -1237,6 +1237,65 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 
 <!-- ✅ END: Bizbuild Ads Intake Wizard -->
 
+<!-- 🌟 BEGIN MOVING CAROUSEL 🌟 -->
+<div class="carousel">
+  <div class="slides">
+    <!-- Paste your six .product-card divs here, exactly as they are -->
+    <div class="product-card">…Facebook…</div>
+    <div class="product-card">…YouTube…</div>
+    <div class="product-card">…Email…</div>
+    <div class="product-card">…SMS…</div>
+    <div class="product-card">…7 Figures…</div>
+    <div class="product-card">…TikTok…</div>
+  </div>
+</div>
+
+<style>
+  .carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .carousel .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  .carousel .product-card {
+    flex: 0 0 300px;          /* match your card width */
+    margin-right: 20px;       /* match your gap */
+  }
+  /* Optional: hide scrollbars if users can scroll manually */
+  .carousel::-webkit-scrollbar { display: none; }
+</style>
+
+<script>
+  (function() {
+    const carousel = document.querySelector('.carousel');
+    const slides   = carousel.querySelector('.slides');
+    const cards    = carousel.querySelectorAll('.product-card');
+    const cardGap  = 20;                                       // must match your CSS margin-right
+    let index      = 0;
+    const total    = cards.length;
+    const slideWidth = cards[0].offsetWidth + cardGap;
+
+    // Auto-advance
+    let interval = setInterval(next, 3000);
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => clearInterval(interval));
+    carousel.addEventListener('mouseleave', () => interval = setInterval(next, 3000));
+
+    function next() {
+      index = (index + 1) % total;
+      slides.style.transform = `translateX(-${slideWidth * index}px)`;
+    }
+  })();
+</script>
+<!-- 🌟 END MOVING CAROUSEL 🌟 -->
+
+
 <!-- START: Footer -->
 <footer style="background: #000; color: #bbb; padding: 2em 1em; text-align: center; font-size: 0.85em;">
   <p>© 2025 BizBuild Academy. All rights reserved.</p>

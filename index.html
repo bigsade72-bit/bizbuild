@@ -86,33 +86,27 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       padding: 1em 1em 3em;
     }
 
-    /* electric-frame: red glow instead of yellow */
+    /* strobe-pulse frame: pink & blue animated glow */
     .electric-frame {
       position: relative;
       padding: 10px;
       border-radius: 12px;
       margin: 0 auto;   /* pulled up, removes top gap */
       background-color: #000;
-      box-shadow:
-        0 0 10px #ff4444,
-        0 0 16px #cc0000,
-        0 0 22px #990000;
-      animation: flicker-red 1.5s infinite alternate;
+      box-shadow: 0 0 12px #ff44cc, 0 0 18px #4488ff;
+      animation: strobePulse 2s infinite ease-in-out;
       max-width: 800px;
     }
 
-    @keyframes flicker-red {
+    @keyframes strobePulse {
       0% {
-        box-shadow:
-          0 0 8px #ff4444,
-          0 0 12px #cc0000,
-          0 0 18px #990000;
+        box-shadow: 0 0 8px #ff44cc, 0 0 12px #4488ff;
+      }
+      50% {
+        box-shadow: 0 0 16px #4488ff, 0 0 24px #ff44cc;
       }
       100% {
-        box-shadow:
-          0 0 12px #cc0000,
-          0 0 18px #990000,
-          0 0 24px #ff4444;
+        box-shadow: 0 0 8px #ff44cc, 0 0 12px #4488ff;
       }
     }
 
@@ -293,7 +287,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     <div class="arrow-up">↑↑↑↑</div>
     <div class="access-message">Play 🔁in your regular browser</div>
 
-      
+     
       <!-- Reviews Loader Under video -->
 <div id="reviews-container" style="margin-top:1.5em;"></div>
 

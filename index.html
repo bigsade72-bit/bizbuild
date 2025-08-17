@@ -56,6 +56,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       color: #fff;
       font-size: 1.6em;
       font-weight: 700;
+      font-family: Impact, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,11 +96,11 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     }
 
     .title-group span:first-child {
-      color: #fff;      /* Not Just Clicks. */
+      color: #fff;
     }
 
     .title-group span:last-child {
-      color: #ff4444;   /* Ads That Convert. */
+      color: #ff4444;
     }
 
     h2 {
@@ -116,7 +117,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       }
       h2 { font-size: 1.2em; }
       .arrow-up { font-size: 1.8em; }
-      .access-message { font-size: 1.2em; }
+      .access-message { font-size: 0.9em; }
       .stat-message { font-size: 0.95em; }
     }
 
@@ -126,7 +127,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       padding: 1em 1em 3em;
     }
 
-    /* electric-frame: electric blue strobe */
+    /* stable electric blue glow */
     .electric-frame {
       position: relative;
       padding: 10px;
@@ -134,20 +135,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       margin: 0 auto;
       background-color: #000;
       box-shadow: 0 0 12px #00aaff, 0 0 18px #0055aa;
-      animation: strobeBlue 2s infinite ease-in-out;
       max-width: 800px;
-    }
-
-    @keyframes strobeBlue {
-      0% {
-        box-shadow: 0 0 8px #00aaff, 0 0 12px #0055aa;
-      }
-      50% {
-        box-shadow: 0 0 16px #0055aa, 0 0 24px #00aaff;
-      }
-      100% {
-        box-shadow: 0 0 8px #00aaff, 0 0 12px #0055aa;
-      }
     }
 
     .video-container {
@@ -267,7 +255,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     }
 
     .access-message {
-      font-size: 1.35em;
+      font-size: 1em;
       font-weight: 700;
       color: #fff;
       font-family: 'Segoe UI Semibold', sans-serif;
@@ -302,7 +290,6 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       <span>Ads That Convert.</span>
     </div>
     <h2>Strategy → Traffic → Measurable ROI</h2>
-    <!-- course-bar removed -->
   </header>
 
   <main>
@@ -315,22 +302,10 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
           <div class="click-overlay"></div>
         </div>
       </div>
-
-      <div id="popup-form">
-        <h3>Enter your details to continue watching</h3>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <button id="submitForm">Submit & Continue</button>
-      </div>
-
-      <button class="sign-up-btn" id="signUpBtn">
-        Sign Up Now
-      </button>
     </div>
 
     <div class="arrow-up">↑↑↑↑</div>
-    <div class="access-message">Play ↻ in your regular browser</div>
-
+    <div class="access-message">Play → in your regular browser</div>
      
       <!-- Reviews Loader Under video -->
 <div id="reviews-container" style="margin-top:1.5em;"></div>

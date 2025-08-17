@@ -534,7 +534,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
   </h3>
 </section>
 <!-- Begin Script🟢: Complete Business Launch Kit -->
-<div class="product-card" style="border:1px solid #aa0000; padding:20px; margin:20px auto; max-width:400px; background:#000; color:#fff; font-family:'Segoe UI', sans-serif;">
+<div class="product-card"
+     style="border:1px solid #aa0000; padding:20px; margin:20px auto; max-width:400px; background:#000; color:#fff; font-family:'Segoe UI', sans-serif;">
 
   <!-- Product Image -->
   <div class="product-image">
@@ -543,31 +544,15 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
          style="width:100%; border-radius:8px; border:2px solid #aa0000;">
   </div>
 
-  <!-- Product Title (Updated) -->
+  <!-- Product Title -->
   <h2 style="margin:15px 0 5px; font-size:1.5em; color:#fff;">
     Our flagship complete 7 day launch kit.
   </h2>
 
-  <!-- Pricing -->
-  <div class="pricing" style="font-size:1.4em; margin-bottom:10px;">
-    <span style="text-decoration:line-through; color:#888; font-size:1em;">
-      $1298
-    </span>
-    <span class="dramatic-price" 
-          style="margin-left:12px; color:#ff4444; font-size:2.8em; font-weight:bold; text-shadow:0 0 8px rgba(255,68,68,0.8); animation:pulsePrice 1.5s infinite;">
-      → $98
-    </span>
-  </div>
-
-  <!-- Pay Now Button -->
-  <a href="https://buy.stripe.com/bJebJ03Rf3PS9u7dk333W3O" target="_blank"
-     style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; border-radius:5px; font-weight:bold; text-decoration:none;">
-    Pay Now
-  </a>
-
-  <!-- Details Dropdown -->
-  <div class="details-section" style="margin-top:15px;">
-    <div onclick="toggleDetails(this)" style="cursor:pointer; color:#ff4444; font-weight:bold; margin-top:10px;">
+  <!-- Details Dropdown (moved above pricing) -->
+  <div class="details-section" style="margin-top:10px;">
+    <div onclick="toggleDetails(this)"
+         style="cursor:pointer; color:#ff4444; font-weight:bold;">
       Details ▼
     </div>
     <div class="details-content"
@@ -629,9 +614,28 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       </ul>
     </div>
   </div>
+
+  <!-- Pricing (flexized for single‐line strike & big price) -->
+  <div class="pricing"
+       style="display:flex; align-items:center; gap:12px; font-size:1.4em; margin-bottom:10px;">
+    <span style="text-decoration:line-through; color:#888; font-size:1em;">
+      $1298
+    </span>
+    <span class="dramatic-price"
+          style="color:#ff4444; font-size:2.8em; font-weight:bold; text-shadow:0 0 8px rgba(255,68,68,0.8); animation:pulsePrice 1.5s infinite;">
+      → $98
+    </span>
+  </div>
+
+  <!-- Pay Now Button -->
+  <a href="https://buy.stripe.com/bJebJ03Rf3PS9u7dk333W3O"
+     target="_blank"
+     style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; border-radius:5px; font-weight:bold; text-decoration:none;">
+    Pay Now
+  </a>
 </div>
 
-<!-- Keyframe + Toggle Script -->
+<!-- Keyframes + Toggle Script -->
 <style>
   @keyframes pulsePrice {
     0%   { transform: scale(1); }
@@ -642,7 +646,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 <script>
   function toggleDetails(trigger) {
     const content = trigger.nextElementSibling;
-    content.style.display = content.style.display === "none" ? "block" : "none";
+    content.style.display =
+      content.style.display === "none" ? "block" : "none";
   }
 </script>
 <!-- End Script🔴: Complete Business Launch Kit -->
@@ -1193,20 +1198,22 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
   class="product-grid"
   style="
     display: flex;
-    flex-wrap: nowrap;             /* force single row */
-    overflow-x: auto;              /* horizontal scroll */
-    overflow-y: hidden;            /* prevent vertical scroll */
+    flex-wrap: nowrap;                /* single row */
+    overflow-x: auto;                 /* horizontal scroll */
+    overflow-y: hidden;               /* no vertical scroll */
     gap: 20px;
     padding: 20px;
     background: #000;
-    -webkit-overflow-scrolling: touch;  /* smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    transform: scale(0.6);            /* shrink to 60% */
+    transform-origin: top left;
   "
 >
   <!-- 🔴 Complete Facebook Marketing Course -->
   <div
     class="product-card"
     style="
-      flex: 0 0 auto;              /* keep original width, no grow/shrink */
+      flex: 0 0 auto;
       max-width: 400px;
       border: 1px solid #aa0000;
       background: #000;
@@ -1479,6 +1486,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     </div>
   </div>
 </div>
+<!-- 🌟 END PRODUCT GRID 🌟 -->
 
 <!-- Toggle Script (unchanged) -->
 <script>
@@ -1488,8 +1496,20 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       content.style.display === "none" ? "block" : "none";
   }
 </script>
-</style>
-<!-- 🌟 END PRODUCT GRID 🌟 -->
+
+<!-- Auto-scroll Carousel Script -->
+<script>
+  const grid = document.querySelector('.product-grid');
+  setInterval(() => {
+    grid.scrollLeft += 1;
+    if (grid.scrollLeft >= grid.scrollWidth - grid.clientWidth) {
+      grid.scrollLeft = 0;
+    }
+  }, 20);
+</script><!-- End 🌟 END PRODUCT GRID 🌟Carousel -->
+
+
+    
 
 <!-- No Page Widening -->
 <style>

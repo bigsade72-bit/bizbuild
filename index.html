@@ -21,7 +21,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
     
- <!-- existing meta, title, CSS links, etc. -->
+<!-- existing meta, title, CSS links, etc. -->
 </head>
 
   <meta charset="UTF-8" />
@@ -46,10 +46,19 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       margin-bottom: 0.2em;
     }
 
-    .title-group span {
+    .title-group span:first-child {
       font-size: 2.8em;
       font-weight: 700;
-      color: #FFDD00;
+      color: #fff;               /* Not Just Clicks. in white */
+      display: block;
+      letter-spacing: 1px;
+      line-height: 1.4em;
+    }
+
+    .title-group span:last-child {
+      font-size: 2.8em;
+      font-weight: 700;
+      color: #ff4444;            /* Ads That Convert. in red */
       display: block;
       letter-spacing: 1px;
       line-height: 1.4em;
@@ -62,29 +71,12 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       margin-top: 0.8em;
     }
 
-    /* fluorescent course-bar styling (same as other page) */
-    .course-bar {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.4em 1em;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #00f8ff, #ff00d0);
-      font-weight: 700;
-      font-size: 0.95em;
-      color: #fff;
-      margin-top: 0.6em;
-    }
-    .course-bar span + span {
-      margin-left: 0.5em;
-    }
-
     @media (max-width: 600px) {
       .title-group span { font-size: 2em; }
       h2 { font-size: 1.2em; }
       .arrow-up { font-size: 1.8em; }
       .access-message { font-size: 1.2em; }
       .stat-message { font-size: 0.95em; }
-      .course-bar { font-size: 0.85em; }
     }
 
     main {
@@ -212,7 +204,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       padding: 0.8em 1.2em;
       margin-top: 0.5em;
       border: none; border-radius: 4px;
-      background: #FFDD00; color: #000;
+      background: #ff4444;    /* button in red */
+      color: #fff;
       font-weight: 700; cursor: pointer;
     }
 
@@ -223,8 +216,9 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       left: 10%;
       padding: 0.8em 1.2em;
       border: none; border-radius: 4px;
-      background: #00FF00; color: #000;
-      font-weight: 700; box-shadow: 0 0 8px rgba(0,255,0,0.7);
+      background: #ff4444;    /* button in red */
+      color: #fff;
+      font-weight: 700; box-shadow: 0 0 8px rgba(255,68,68,0.7);
       cursor: pointer; z-index: 250;
     }
 
@@ -268,15 +262,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       <span>Ads That Convert.</span>
     </div>
     <h2>Strategy → Traffic → Measurable ROI</h2>
-    <div class="course-bar">
-      <span>Run Ads</span>
-      <span>|</span>
-      <span>Gain Traffic</span>
-      <span>|</span>
-      <span>Increase Sales</span>
-    </div>
+    <!-- course-bar removed -->
   </header>
-
 
   <main>
     <div class="electric-frame">
@@ -302,9 +289,9 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     </div>
 
     <div class="arrow-up">↑↑↑↑</div>
-    <div class="access-message">Play 🔁in your regular browser </div>
+    <div class="access-message">Play 🔁in your regular browser</div>
 
-    <!-- Reviews Loader Under video -->
+      <!-- Reviews Loader Under video -->
 <div id="reviews-container" style="margin-top:1.5em;"></div>
 
 <!-- Reviews loader script -->
@@ -655,7 +642,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 <!-- END Entire What We Offer Block -->
  
 
-<!-- Begin Script🟢: Complete Business Launch Kit -->
+<!-- Begin Script🟢: Complete Business Launch Kit (UPDATED) -->
 <div class="product-card" style="border:1px solid #aa0000; padding:20px; margin:20px auto; max-width:400px; background:#000; color:#fff; font-family:'Segoe UI', sans-serif;">
   <!-- Product Image -->
   <div class="product-image">
@@ -669,49 +656,15 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     Complete Business Launch Kit
   </h2>
 
-  <!-- Pricing -->
-  <div class="pricing" style="font-size:1.4em; margin-bottom:10px;">
-    <span style="text-decoration:line-through; color:#888; font-size:1em;">
-      $1298
-    </span>
-    <span class="dramatic-price" 
-          style="margin-left:12px; color:#ff4444; font-size:2.8em; font-weight:bold; text-shadow: 0 0 8px rgba(255,68,68,0.8); animation: pulsePrice 1.5s infinite;">
-      → $98
-    </span>
+  <!-- Revised Pricing Text -->
+  <div class="pricing" style="font-size:0.9em; color:#fff; margin-bottom:10px;">
+    see sale price below
   </div>
 
-  <!-- Pay Now Button -->
-  <a href="https://buy.stripe.com/bJebJ03Rf3PS9u7dk333W3O" target="_blank"
-     style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; border-radius:5px; font-weight:bold; text-decoration:none;">
-    Pay Now
-  </a>
+  <!-- Pay Now button removed -->
 
-  <!-- Details Dropdown -->
-  <div class="details-section" style="margin-top:15px;">
-    <div onclick="toggleDetails(this)" style="cursor:pointer; color:#ff4444; font-weight:bold; margin-top:10px;">
-      Details ▼
-    </div>
-    <div class="details-content"
-         style="display:none; margin-top:10px; text-align:left; background:#111; padding:10px; border-radius:4px; border:1px solid #aa0000;">
-      <p>All 7 bundles</p>
-    </div>
-  </div>
+  <!-- Details section removed -->
 </div>
-
-<!-- Keyframe + Toggle Script -->
-<style>
-  @keyframes pulsePrice {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-</style>
-<script>
-  function toggleDetails(trigger) {
-    const content = trigger.nextElementSibling;
-    content.style.display = content.style.display === "none" ? "block" : "none";
-  }
-</script>
 <!-- End Script🔴: Complete Business Launch Kit -->
 
 <!-- 🌟🔴🩰🔵 BEGIN PRODUCT GRID 🔴🩰🔵🌟 -->
@@ -955,6 +908,64 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </script>
 <!-- 🌟🔴🩰🔵 END GRID & SCRIPT 🔴🩰🔵🌟 -->
 
+<!-- Begin Script🟢: Complete Business Launch Kit -->
+<div class="product-card" style="border:1px solid #aa0000; padding:20px; margin:20px auto; max-width:400px; background:#000; color:#fff; font-family:'Segoe UI', sans-serif;">
+  <!-- Product Image -->
+  <div class="product-image">
+    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
+         alt="Complete Business Launch Kit"
+         style="width:100%; border-radius:8px; border:2px solid #aa0000;">
+  </div>
+
+  <!-- Product Title -->
+  <h2 style="margin:15px 0 5px; font-size:1.5em; color:#fff;">
+    Complete Business Launch Kit
+  </h2>
+
+  <!-- Pricing -->
+  <div class="pricing" style="font-size:1.4em; margin-bottom:10px;">
+    <span style="text-decoration:line-through; color:#888; font-size:1em;">
+      $1298
+    </span>
+    <span class="dramatic-price" 
+          style="margin-left:12px; color:#ff4444; font-size:2.8em; font-weight:bold; text-shadow: 0 0 8px rgba(255,68,68,0.8); animation: pulsePrice 1.5s infinite;">
+      → $98
+    </span>
+  </div>
+
+  <!-- Pay Now Button -->
+  <a href="https://buy.stripe.com/bJebJ03Rf3PS9u7dk333W3O" target="_blank"
+     style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; border-radius:5px; font-weight:bold; text-decoration:none;">
+    Pay Now
+  </a>
+
+  <!-- Details Dropdown -->
+  <div class="details-section" style="margin-top:15px;">
+    <div onclick="toggleDetails(this)" style="cursor:pointer; color:#ff4444; font-weight:bold; margin-top:10px;">
+      Details ▼
+    </div>
+    <div class="details-content"
+         style="display:none; margin-top:10px; text-align:left; background:#111; padding:10px; border-radius:4px; border:1px solid #aa0000;">
+      <p>All 7 bundles</p>
+    </div>
+  </div>
+</div>
+
+<!-- Keyframe + Toggle Script -->
+<style>
+  @keyframes pulsePrice {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+</style>
+<script>
+  function toggleDetails(trigger) {
+    const content = trigger.nextElementSibling;
+    content.style.display = content.style.display === "none" ? "block" : "none";
+  }
+</script>
+<!-- End Script🔴: Complete Business Launch Kit -->
 
 
 

@@ -37,7 +37,34 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     }
 
     header {
+      position: relative;
       padding: 3em 1em 0.5em;
+    }
+
+    .brand {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      display: flex;
+      align-items: center;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: #ff4444;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4em;
+      font-weight: 700;
+      border-radius: 4px;
+      margin-right: 0.5em;
+    }
+    .brand-text {
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: 700;
     }
 
     .title-group {
@@ -253,6 +280,10 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 
 <body>
   <header>
+    <div class="brand">
+      <div class="brand-icon">B</div>
+      <div class="brand-text">BizBuild</div>
+    </div>
     <div class="title-group">
       <span>Not Just Clicks.</span>
       <span>Ads That Convert.</span>
@@ -285,7 +316,10 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     </div>
 
     <div class="arrow-up">↑↑↑↑</div>
-    <div class="access-message">Play 🔁in your regular browser</div>
+    <div class="access-message">Play ↻ in your regular browser</div>
+
+    <!-- Reviews Loader Under video -->
+    <div id="reviews-container" style="margin-top:1.5em;"></div>
 
      
       <!-- Reviews Loader Under video -->

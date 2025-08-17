@@ -656,7 +656,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </section>
 
 <!-- Done-For-You Ads Accelerator -->
-<div style="text-align:center; margin:2em 0;">
+<div style="text-align:center; margin:2em 0; border:1px solid #aa0000;">
 
   <!-- Product Image -->
   <img
@@ -671,30 +671,31 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
   </h3>
 
   <!-- Details Dropdown -->
-  <details style="background:#aa0000; border:1px solid #aa0000; border-radius:8px; padding:1em; color:#fff; max-width:600px; margin:1em auto;">
-    <summary style="cursor:pointer; font-size:1.1em; font-weight:700; color:#fff; outline:none;">
-      Details
-    </summary>
-
-    <p style="margin-top:1em; text-align:left; color:#fff;">
-      A taste of what it's like to work with us. A hands-on setup experience where we help you launch your next campaign. You provide your visuals/creatives and we will remix them to recreate an ad that will drive more traffic. We also configure your pixel, targeting, and ad structure — then hand it off with 7-day support.
-    </p>
-    <p style="margin-top:1em; text-align:left; color:#fff;">
-      1 campaign: 1 main ad + 1 retargeting ad
-    </p>
-    <p style="margin-top:0.5em; text-align:left; color:#fff;">
-      Submit your existing creatives for optimization
-    </p>
-    <p style="margin-top:0.5em; text-align:left; color:#fff;">
-      We recreate ads designed to drive more traffic
-    </p>
-    <p style="margin-top:0.5em; text-align:left; color:#fff;">
-      Configure pixel, targeting, and ad structure
-    </p>
-    <p style="margin-top:0.5em; text-align:left; color:#fff;">
-      Launch support for 7 days
-    </p>
-  </details>
+  <div class="details-section" style="margin-top:15px;">
+    <div onclick="toggleDetails(this)" style="cursor:pointer; color:#ff4444; font-weight:bold; margin-top:10px;">
+      Details ▼
+    </div>
+    <div class="details-content"
+         style="display:none; margin-top:10px; text-align:left; background:#111; padding:10px; border-radius:4px; border:1px solid #aa0000;">
+      <ul style="list-style:none; padding-left:0; margin:0;">
+        <li style="color:#ff4444; font-weight:bold; margin-bottom:0.5em;">
+          <span style="margin-right:0.5em;">&#10003;</span>1 campaign: 1 main ad + 1 retargeting ad
+        </li>
+        <li style="color:#ff4444; font-weight:bold; margin-bottom:0.5em;">
+          <span style="margin-right:0.5em;">&#10003;</span>Submit your existing creatives for optimization
+        </li>
+        <li style="color:#ff4444; font-weight:bold; margin-bottom:0.5em;">
+          <span style="margin-right:0.5em;">&#10003;</span>We recreate ads designed to drive more traffic
+        </li>
+        <li style="color:#ff4444; font-weight:bold; margin-bottom:0.5em;">
+          <span style="margin-right:0.5em;">&#10003;</span>Configure pixel, targeting, and ad structure
+        </li>
+        <li style="color:#ff4444; font-weight:bold;">
+          <span style="margin-right:0.5em;">&#10003;</span>Launch support for 7 days
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Price & Call to Action -->
   <p style="font-size:2.5em; font-weight:bold; color:#ff4444; margin:1em 0;">
@@ -720,7 +721,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </div>
 <!-- End Done-For-You Level 2 Ads Accelerator -->
 
-    <!-- Level 3 intro to VIP block -->
+<!-- Level 3 intro to VIP block -->
 <section style="background:#222; color:#fff; text-align:center; padding:1em 0; margin:0;">
   <h3 style="margin:0; font-size:1.5em; font-weight:700;">
     Level 3
@@ -749,7 +750,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
       margin-top:1em;
       padding:0.8em 1.5em;
       background-color:#ff4444;
-      color:#000;
+      color:#fff;
       font-weight:bold;
       font-size:1em;
       border-radius:8px;
@@ -759,7 +760,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     Join Us Live (Free)
   </a>
 </div>
-<!-- End VIP Level 3 Block  -->
+<!-- End VIP Level 3 Block  -->  
 <!-- Completetly End What We Offer Section  -->
 
 

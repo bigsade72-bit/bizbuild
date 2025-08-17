@@ -521,7 +521,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </body>
 </html>
 
-<!-- BEGIN: What We Offer Section -->
+
+ <!-- BEGIN: What We Offer Section -->
 <section style="background:#000; color:#fff; padding:3em 1.5em; text-align:center;">
   <h2 style="font-size:1.8em; font-weight:700; color:#ff4444; margin-bottom:1em;">
     What We Offer
@@ -569,17 +570,33 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     <div style="text-align:left; font-weight:bold; margin-bottom:0.5em;">
       Level 2
     </div>
-    <!-- Done-With-You Tier -->
+    <!-- Done-For-You Tier -->
     <div style="margin-bottom:2em; border-left:4px solid #FFBF00; padding-left:1em;">
       <h3 style="font-size:1.3em; font-weight:700; color:#fff;">
-        Done-With-You Accelerator
+        Done-For-You Ads (Beginners)
       </h3>
-      <p>
-        A hands-on setup experience where we help you launch your next campaign. You provide the creatives, we configure your pixel, targeting, and ad structure — then hand it off with 7-day support. Perfect for DIY founders who want expert guidance.
-      </p>
+
+      <p>A taste of what it's like to work with us:</p>
+
+      <ul style="list-style:none; padding-left:0; margin-top:1em;">
+        <li style="margin-bottom:0.5em;">
+          <span style="color:#ff4444; margin-right:0.5em;">&#10003;</span>Submit your existing creatives for optimization
+        </li>
+        <li style="margin-bottom:0.5em;">
+          <span style="color:#ff4444; margin-right:0.5em;">&#10003;</span>We recreate ads designed to drive more traffic
+        </li>
+        <li style="margin-bottom:0.5em;">
+          <span style="color:#ff4444; margin-right:0.5em;">&#10003;</span>Configure pixel, targeting, and ad structure
+        </li>
+        <li>
+          <span style="color:#ff4444; margin-right:0.5em;">&#10003;</span>Launch one campaign with one ad and 7 days of support
+        </li>
+      </ul>
+
       <p style="margin-top:0.8em; font-weight:bold; color:#ff4444;">
         Starting price: $700
       </p>
+
       <a
         href="#"
         data-calendly
@@ -666,9 +683,8 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </style>
 <!-- END: Pulse Animation -->
 <!-- END Entire What We Offer Block -->
- 
 
-<!-- Begin Script🟢: Complete Business Launch Kit (UPDATED) -->
+<!-- Begin Script🟢: Complete Business Launch Kit -->
 <div class="product-card" style="border:1px solid #aa0000; padding:20px; margin:20px auto; max-width:400px; background:#000; color:#fff; font-family:'Segoe UI', sans-serif;">
   <!-- Product Image -->
   <div class="product-image">
@@ -682,15 +698,49 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
     Complete Business Launch Kit
   </h2>
 
-  <!-- Revised Pricing Text -->
-  <div class="pricing" style="font-size:0.9em; color:#fff; margin-bottom:10px;">
-    see sale price below
+  <!-- Pricing -->
+  <div class="pricing" style="font-size:1.4em; margin-bottom:10px;">
+    <span style="text-decoration:line-through; color:#888; font-size:1em;">
+      $1298
+    </span>
+    <span class="dramatic-price" 
+          style="margin-left:12px; color:#ff4444; font-size:2.8em; font-weight:bold; text-shadow: 0 0 8px rgba(255,68,68,0.8); animation: pulsePrice 1.5s infinite;">
+      → $98
+    </span>
   </div>
 
-  <!-- Pay Now button removed -->
+  <!-- Pay Now Button -->
+  <a href="https://buy.stripe.com/bJebJ03Rf3PS9u7dk333W3O" target="_blank"
+     style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; border-radius:5px; font-weight:bold; text-decoration:none;">
+    Pay Now
+  </a>
 
-  <!-- Details section removed -->
+  <!-- Details Dropdown -->
+  <div class="details-section" style="margin-top:15px;">
+    <div onclick="toggleDetails(this)" style="cursor:pointer; color:#ff4444; font-weight:bold; margin-top:10px;">
+      Details ▼
+    </div>
+    <div class="details-content"
+         style="display:none; margin-top:10px; text-align:left; background:#111; padding:10px; border-radius:4px; border:1px solid #aa0000;">
+      <p>All 7 bundles</p>
+    </div>
+  </div>
 </div>
+
+<!-- Keyframe + Toggle Script -->
+<style>
+  @keyframes pulsePrice {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+</style>
+<script>
+  function toggleDetails(trigger) {
+    const content = trigger.nextElementSibling;
+    content.style.display = content.style.display === "none" ? "block" : "none";
+  }
+</script>
 <!-- End Script🔴: Complete Business Launch Kit -->
 
 <!-- 🌟🔴🩰🔵 BEGIN PRODUCT GRID 🔴🩰🔵🌟 -->
@@ -934,64 +984,7 @@ src="https://www.facebook.com/tr?id=1251864852856693&ev=PageView&noscript=1"
 </script>
 <!-- 🌟🔴🩰🔵 END GRID & SCRIPT 🔴🩰🔵🌟 -->
 
-<!-- Begin Script🟢: Complete Business Launch Kit -->
-<div class="product-card" style="border:1px solid #aa0000; padding:20px; margin:20px auto; max-width:400px; background:#000; color:#fff; font-family:'Segoe UI', sans-serif;">
-  <!-- Product Image -->
-  <div class="product-image">
-    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
-         alt="Complete Business Launch Kit"
-         style="width:100%; border-radius:8px; border:2px solid #aa0000;">
-  </div>
 
-  <!-- Product Title -->
-  <h2 style="margin:15px 0 5px; font-size:1.5em; color:#fff;">
-    Complete Business Launch Kit
-  </h2>
-
-  <!-- Pricing -->
-  <div class="pricing" style="font-size:1.4em; margin-bottom:10px;">
-    <span style="text-decoration:line-through; color:#888; font-size:1em;">
-      $1298
-    </span>
-    <span class="dramatic-price" 
-          style="margin-left:12px; color:#ff4444; font-size:2.8em; font-weight:bold; text-shadow: 0 0 8px rgba(255,68,68,0.8); animation: pulsePrice 1.5s infinite;">
-      → $98
-    </span>
-  </div>
-
-  <!-- Pay Now Button -->
-  <a href="https://buy.stripe.com/bJebJ03Rf3PS9u7dk333W3O" target="_blank"
-     style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; border-radius:5px; font-weight:bold; text-decoration:none;">
-    Pay Now
-  </a>
-
-  <!-- Details Dropdown -->
-  <div class="details-section" style="margin-top:15px;">
-    <div onclick="toggleDetails(this)" style="cursor:pointer; color:#ff4444; font-weight:bold; margin-top:10px;">
-      Details ▼
-    </div>
-    <div class="details-content"
-         style="display:none; margin-top:10px; text-align:left; background:#111; padding:10px; border-radius:4px; border:1px solid #aa0000;">
-      <p>All 7 bundles</p>
-    </div>
-  </div>
-</div>
-
-<!-- Keyframe + Toggle Script -->
-<style>
-  @keyframes pulsePrice {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-</style>
-<script>
-  function toggleDetails(trigger) {
-    const content = trigger.nextElementSibling;
-    content.style.display = content.style.display === "none" ? "block" : "none";
-  }
-</script>
-<!-- End Script🔴: Complete Business Launch Kit -->
 
 
 

@@ -1064,7 +1064,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
   <!-- Embedded Styles -->
   <style>
-    /* Sidebar Tab */
     #offerTab {
       position: absolute;
       top: 50%;
@@ -1078,8 +1077,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       cursor: pointer;
       z-index: 2;
     }
-
-    /* Overlays */
     .offer-overlay {
       display: none;
       position: fixed;
@@ -1089,8 +1086,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       justify-content: center;
       align-items: center;
     }
-
-    /* Modals */
     .offer-modal {
       background: #fff;
       border-radius: 8px;
@@ -1163,55 +1158,50 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
   <!-- Embedded Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const KEY = 'dailySidebarOffer';
-      const today = new Date().toISOString().slice(0, 10);
+    document.addEventListener('DOMContentLoaded', function () {
+      var tab = document.getElementById('offerTab');
+      var o1 = document.getElementById('offer1Overlay');
+      var close1 = document.getElementById('offer1Close');
+      var o2 = document.getElementById('offer2Overlay');
+      var close2 = document.getElementById('offer2Close');
+      var countdownEl = document.getElementById('offer2Countdown');
+      var timerInt;
+      var secondShown = localStorage.getItem('offer2Shown');
 
-      const tab = document.getElementById('offerTab');
-      if (!tab) return;
-
-      // prevent repeat show today
-      if (localStorage.getItem(KEY) === today) {
-        tab.style.display = 'none';
-        return;
-      }
-      localStorage.setItem(KEY, today);
-
-      const o1 = document.getElementById('offer1Overlay');
-      const o2 = document.getElementById('offer2Overlay');
-      const close1 = document.getElementById('offer1Close');
-      const close2 = document.getElementById('offer2Close');
-      const countdownEl = document.getElementById('offer2Countdown');
-      let timerInt;
-
-      // click tab → show first modal
-      tab.addEventListener('click', () => {
-        tab.style.display = 'none';
+      // always-visible tab
+      tab.addEventListener('click', function () {
         o1.style.display = 'flex';
       });
 
-      // close first → show second + start countdown
-      close1.addEventListener('click', () => {
+      // first modal close → second modal only once
+      close1.addEventListener('click', function () {
         o1.style.display = 'none';
-        o2.style.display = 'flex';
-        const end = Date.now() + 30 * 60 * 1000;
-        update();
-        timerInt = setInterval(update, 1000);
-
-        function update() {
-          const diff = Math.max(0, end - Date.now());
-          const m = String(Math.floor(diff / 60000)).padStart(2, '0');
-          const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-          countdownEl.textContent = `${m}:${s}`;
-          if (diff <= 0) clearInterval(timerInt);
+        if (!secondShown) {
+          o2.style.display = 'flex';
+          startCountdown();
+          localStorage.setItem('offer2Shown', 'true');
+          secondShown = true;
         }
       });
 
-      // close second → clear timer
-      close2.addEventListener('click', () => {
+      // second modal close
+      close2.addEventListener('click', function () {
         o2.style.display = 'none';
         clearInterval(timerInt);
       });
+
+      function startCountdown() {
+        var end = Date.now() + 30 * 60 * 1000;
+        updateTimer();
+        timerInt = setInterval(updateTimer, 1000);
+        function updateTimer() {
+          var diff = Math.max(0, end - Date.now());
+          var m = String(Math.floor(diff / 60000)).padStart(2, '0');
+          var s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+          countdownEl.textContent = m + ':' + s;
+          if (diff <= 0) clearInterval(timerInt);
+        }
+      }
     });
   </script>
 </section>

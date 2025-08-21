@@ -1357,7 +1357,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- ✅ END: Bizbuild Ads Intake Wizard -->  
 
 
-<!-- BEGIN: Exit Intent Offer Script – paste this just above </body> -->
+<!-- BEGIN: Debuggable Exit-Intent Offer Script – paste this just above </body> -->
 <style>
   /* Overlay & Modal */
   #exitIntentOverlay {
@@ -1413,12 +1413,12 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     font-size: 1.4em;
     margin-bottom: 15px;
   }
-  #exitIntentModal .pricing .old-price {
+  #exitIntentModal .old-price {
     text-decoration: line-through;
     color: #888;
     font-size: 1em;
   }
-  #exitIntentModal .pricing .new-price {
+  #exitIntentModal .new-price {
     color: #ff4444;
     font-size: 2.8em;
     font-weight: bold;
@@ -1457,33 +1457,39 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </div>
 
 <script>
-(function() {
+document.addEventListener('DOMContentLoaded', () => {
   const triggerEl   = document.getElementById('faq');
   const overlay     = document.getElementById('exitIntentOverlay');
   const closeBtn    = document.getElementById('exitIntentClose');
   const countdownEl = document.getElementById('exitIntentCountdown');
-  let hasFired      = false;
-  let intervalId;
+  let intervalId, hasFired = false;
 
-  // Get current time in New York
+  console.log('Exit-Intent: Script loaded. Looking for trigger:', triggerEl);
+
+  if (!triggerEl) {
+    console.error('Exit-Intent: #faq not found – popup will never fire.');
+    return;
+  }
+
+  // Time in New York
   function nowInNY() {
     return new Date(
       new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
     );
   }
 
-  // Update countdown to next 11:59:59.999pm EST
+  // Countdown logic
   function updateCountdown() {
-    const now  = nowInNY();
-    const end  = new Date(now);
+    const now = nowInNY();
+    const end = new Date(now);
     end.setHours(23,59,59,999);
     if (now > end) end.setDate(end.getDate() + 1);
     let diff = end - now;
-    const h = Math.floor(diff / 3600000);
-    diff -= h * 3600000;
-    const m = Math.floor(diff / 60000);
-    diff -= m * 60000;
-    const s = Math.floor(diff / 1000);
+    const h = Math.floor(diff/3600000);
+    diff -= h*3600000;
+    const m = Math.floor(diff/60000);
+    diff -= m*60000;
+    const s = Math.floor(diff/1000);
     countdownEl.textContent =
       `${h.toString().padStart(2,'0')}h `
       + `${m.toString().padStart(2,'0')}m `
@@ -1495,7 +1501,8 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     intervalId = setInterval(updateCountdown, 1000);
   }
 
-  function showExitIntent() {
+  function showModal() {
+    console.log('Exit-Intent: Triggered – showing modal');
     overlay.style.display = 'flex';
     startCountdown();
   }
@@ -1505,17 +1512,26 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     clearInterval(intervalId);
   });
 
-  window.addEventListener('scroll', () => {
-    if (hasFired) return;
-    const rect = triggerEl.getBoundingClientRect();
-    if (rect.top <= window.innerHeight && rect.bottom > 0) {
-      hasFired = true;
-      showExitIntent();
-    }
+  // Use IntersectionObserver for reliable viewport detection
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasFired) {
+        hasFired = true;
+        observer.unobserve(triggerEl);
+        showModal();
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
   });
-})();
+
+  io.observe(triggerEl);
+});
 </script>
-<!-- END: Exit Intent Offer Script -->
+<!-- END: Debuggable Exit-Intent Offer Script -->
+
 
 <!-- START: Footer -->
 <footer style="background: #000; color: #bbb; padding: 2em 1em; text-align: center; font-size: 0.85em;">

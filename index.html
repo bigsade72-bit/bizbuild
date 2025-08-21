@@ -1027,27 +1027,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </style>  <!-- <-- close this No Page widening section tag -->
 
 
-<!-- FAQ Auto-Tagger: paste this just above your FAQ section -->
-<script>
-  (function(){
-    const me   = document.currentScript;
-    const faqs = me.nextElementSibling;
-    const title= faqs?.querySelector('h2.faq-title');
 
-    if (
-      faqs &&
-      faqs.matches('section.faq-section') &&
-      title &&
-      title.textContent.trim().toLowerCase().includes('frequently asked questions')
-    ) {
-      faqs.id = 'faq';
-      // console.log('✅ FAQ section tagged with id="faq"');
-    } else {
-      console.warn('⚠️ FAQ Auto-Tagger: next element isn’t your FAQ section.');
-    }
-  })();
-</script>
-<!-- END FAQ Auto-Tagger: paste this just above your FAQ section -->
 
 
 <!-- START: FAQ Section -->
@@ -1356,11 +1336,29 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
 <!-- ✅ END: Bizbuild Ads Intake Wizard -->  
 
-
-<!-- BEGIN: Debuggable Exit-Intent Offer Script – paste this just above </body> -->
+<!-- BEGIN: Scroll-Triggered Sidebar Double-Intent Offer – paste just above </body> -->
 <style>
-  /* Overlay & Modal */
-  #exitIntentOverlay {
+  /* Sidebar Tab */
+  #offerTab {
+    position: fixed;
+    top: 50%;
+    right: -60px;
+    transform: translateY(-50%);
+    background: #004d40; /* dark teal */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px 0 0 4px;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    transition: right 0.3s ease;
+    z-index: 9998;
+  }
+  #offerTab.show {
+    right: 0;
+  }
+
+  /* Overlay shared by both offers */
+  .offer-overlay {
     display: none;
     position: fixed;
     inset: 0;
@@ -1369,62 +1367,43 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     justify-content: center;
     align-items: center;
   }
-  #exitIntentModal {
-    background: #fff;
-    border: 2px solid #aa0000;
+
+  /* Base modal styling */
+  .offer-modal {
     border-radius: 8px;
     padding: 20px;
-    width: 90%;
     max-width: 400px;
+    width: 90%;
     font-family: 'Segoe UI', sans-serif;
     position: relative;
+    background: #fff;
     color: #000;
   }
-  #exitIntentClose {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-size: 1.4em;
-    cursor: pointer;
-    color: #444;
-  }
-  #exitIntentCountdown {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #aa0000;
-    text-align: center;
-    margin: 10px 0 15px;
-  }
-  #exitIntentModal img {
+  .offer-modal img {
     width: 100%;
-    border: 2px solid #aa0000;
+    border: 2px solid currentColor;
     border-radius: 6px;
     margin-bottom: 12px;
   }
-  #exitIntentModal h2 {
+  .offer-modal h2 {
     margin: 10px 0;
     font-size: 1.5em;
-    color: #000;
   }
-  #exitIntentModal .pricing {
+  .offer-pricing {
     display: flex;
     align-items: center;
     gap: 12px;
     font-size: 1.4em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
-  #exitIntentModal .old-price {
-    text-decoration: line-through;
-    color: #888;
-    font-size: 1em;
-  }
-  #exitIntentModal .new-price {
+  .old-price { text-decoration: line-through; color: #888; font-size: 1em; }
+  .new-price {
     color: #ff4444;
     font-size: 2.8em;
     font-weight: bold;
     text-shadow: 0 0 8px rgba(255,68,68,0.8);
   }
-  #exitIntentModal a.cta {
+  .offer-modal a.cta {
     display: block;
     text-align: center;
     background: #ff4444;
@@ -1435,102 +1414,140 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     text-decoration: none;
     margin-top: 10px;
   }
+  .offer-modal .close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.4em;
+    cursor: pointer;
+    color: #444;
+  }
+
+  /* Second offer (yellow variant) */
+  #offer2Modal {
+    background: #fff9c4;
+    border: 2px solid #fbc02d;
+  }
+  #offer2Countdown {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f57f17;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 </style>
 
-<div id="exitIntentOverlay">
-  <div id="exitIntentModal">
-    <span id="exitIntentClose">&times;</span>
+<!-- Sidebar Tab -->
+<div id="offerTab">🎁 Special Offer</div>
+
+<!-- First Offer Modal -->
+<div id="offer1Overlay" class="offer-overlay">
+  <div id="offer1Modal" class="offer-modal">
+    <span class="close" id="offer1Close">&times;</span>
     <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
          alt="Complete Business Launch Kit">
-    <h2>Complete 7 Day Launch Kit</h2>
-    <div id="exitIntentCountdown">Loading timer…</div>
-    <div class="pricing">
+    <h2>Complete 7-Day Launch Kit</h2>
+    <div class="offer-pricing">
+      <span class="old-price">$1298</span>
+      <span class="new-price">→ $44</span>
+    </div>
+    <a class="cta"
+       href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42"
+       target="_blank">
+      Pay $44
+    </a>
+  </div>
+</div>
+
+<!-- Second Offer Modal -->
+<div id="offer2Overlay" class="offer-overlay">
+  <div id="offer2Modal" class="offer-modal">
+    <span class="close" id="offer2Close">&times;</span>
+    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
+         alt="Complete Business Launch Kit">
+    <h2>Special 30-Minute Offer</h2>
+    <div id="offer2Countdown">30:00</div>
+    <div class="offer-pricing">
       <span class="old-price">$1298</span>
       <span class="new-price">→ $27</span>
     </div>
     <a class="cta"
        href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
        target="_blank">
-      Pay Now
+      Pay $27
     </a>
   </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const triggerEl   = document.getElementById('faq');
-  const overlay     = document.getElementById('exitIntentOverlay');
-  const closeBtn    = document.getElementById('exitIntentClose');
-  const countdownEl = document.getElementById('exitIntentCountdown');
-  let intervalId, hasFired = false;
+  const STORAGE_KEY = 'dailySidebarOffer';
+  const today        = new Date().toISOString().slice(0,10);
 
-  console.log('Exit-Intent: Script loaded. Looking for trigger:', triggerEl);
+  // Only once per day
+  if (localStorage.getItem(STORAGE_KEY) === today) return;
+  localStorage.setItem(STORAGE_KEY, today);
 
-  if (!triggerEl) {
-    console.error('Exit-Intent: #faq not found – popup will never fire.');
-    return;
-  }
+  // Elements
+  const tab         = document.getElementById('offerTab');
+  const o1Overlay   = document.getElementById('offer1Overlay');
+  const o1Close     = document.getElementById('offer1Close');
+  const o2Overlay   = document.getElementById('offer2Overlay');
+  const o2Close     = document.getElementById('offer2Close');
+  const countdownEl = document.getElementById('offer2Countdown');
 
-  // Time in New York
-  function nowInNY() {
-    return new Date(
-      new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
-    );
-  }
+  let tabShown = false;
+  let countdownInt;
 
-  // Countdown logic
-  function updateCountdown() {
-    const now = nowInNY();
-    const end = new Date(now);
-    end.setHours(23,59,59,999);
-    if (now > end) end.setDate(end.getDate() + 1);
-    let diff = end - now;
-    const h = Math.floor(diff/3600000);
-    diff -= h*3600000;
-    const m = Math.floor(diff/60000);
-    diff -= m*60000;
-    const s = Math.floor(diff/1000);
-    countdownEl.textContent =
-      `${h.toString().padStart(2,'0')}h `
-      + `${m.toString().padStart(2,'0')}m `
-      + `${s.toString().padStart(2,'0')}s`;
-  }
-
-  function startCountdown() {
-    updateCountdown();
-    intervalId = setInterval(updateCountdown, 1000);
-  }
-
-  function showModal() {
-    console.log('Exit-Intent: Triggered – showing modal');
-    overlay.style.display = 'flex';
-    startCountdown();
-  }
-
-  closeBtn.addEventListener('click', () => {
-    overlay.style.display = 'none';
-    clearInterval(intervalId);
+  // Show sidebar tab at 50% scroll
+  window.addEventListener('scroll', () => {
+    if (tabShown) return;
+    const scrolled    = window.scrollY + window.innerHeight;
+    const pageHeight  = document.documentElement.scrollHeight;
+    if (scrolled / pageHeight >= 0.5) {
+      tabShown = true;
+      tab.classList.add('show');
+    }
   });
 
-  // Use IntersectionObserver for reliable viewport detection
-  const io = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasFired) {
-        hasFired = true;
-        observer.unobserve(triggerEl);
-        showModal();
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
+  // Click the tab → open first offer
+  tab.addEventListener('click', () => {
+    tab.style.display = 'none';
+    o1Overlay.style.display = 'flex';
   });
 
-  io.observe(triggerEl);
+  // Close first offer → open second immediately
+  o1Close.addEventListener('click', () => {
+    o1Overlay.style.display = 'none';
+    showSecondOffer();
+  });
+
+  // Close second offer
+  o2Close.addEventListener('click', () => {
+    o2Overlay.style.display = 'none';
+    clearInterval(countdownInt);
+  });
+
+  // Display second offer + start 30-minute timer
+  function showSecondOffer() {
+    o2Overlay.style.display = 'flex';
+    const endTime = Date.now() + 30 * 60 * 1000;
+    updateTimer();
+    countdownInt = setInterval(updateTimer, 1000);
+
+    function updateTimer() {
+      const diff = Math.max(0, endTime - Date.now());
+      const m    = String(Math.floor(diff / 60000)).padStart(2,'0');
+      const s    = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+      countdownEl.textContent = `${m}:${s}`;
+      if (diff <= 0) clearInterval(countdownInt);
+    }
+  }
 });
 </script>
-<!-- END: Debuggable Exit-Intent Offer Script -->
+<!-- END: Scroll-Triggered Sidebar Double-Intent Offer -->
+
+
 
 
 <!-- START: Footer -->

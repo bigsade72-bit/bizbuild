@@ -910,221 +910,39 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- END: Section Divider -->
 
 <!-- START: Special Offer Section -->
-<section id="special-offer-section" style="background: #fff; text-align: center; padding: 40px 20px;">
-  <button id="special-offer-btn" class="gift-box">
+<section
+  id="special-offer-section"
+  style="
+    background: #FFD700;           /* bright yellow */
+    border-radius: 12px;          /* rounded corners */
+    padding: 40px 20px;
+    text-align: center;
+    margin: 2em auto;
+    max-width: 400px;
+    position: relative;           /* ensure z-index works */
+    z-index: 1000;
+  "
+>
+  <button
+    id="special-offer-btn"
+    class="gift-box"
+    style="
+      background: #d32f2f;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1001;             /* sit above the section */
+      pointer-events: auto;      /* ensure it’s clickable */
+    "
+  >
     🎁 Special Offer
   </button>
 </section>
 <!-- END: Special Offer Section -->
-
-<!-- START: Modal Templates -->
-<!-- Modal 1: $44 Offer -->
-<div id="special-modal-1" class="special-modal">
-  <div class="special-modal-content">
-    <button class="special-close" data-target="1">&times;</button>
-    <img
-      src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
-      alt="Complete Biz Launch Kit"
-    />
-    <h2>
-      <span class="old-price1">$1208</span>
-      <span class="old-price2">$98</span>
-      <span class="new-price">$44</span>
-    </h2>
-    <a
-      href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42"
-      class="special-buy"
-      target="_blank"
-      rel="noopener"
-    >
-      Buy Now for $44
-    </a>
-  </div>
-</div>
-
-<!-- Modal 2: Final $27 Offer -->
-<div id="special-modal-2" class="special-modal">
-  <div class="special-modal-content final">
-    <button class="special-close" data-target="2">&times;</button>
-    <img
-      src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
-      alt="Complete Biz Launch Kit"
-    />
-    <p class="final-intro">
-      OK, you’re making us work here, here’s our final offer.
-    </p>
-    <p id="countdown-timer">30:00</p>
-    <h2>Final Offer: $27</h2>
-    <a
-      href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
-      class="special-buy"
-      target="_blank"
-      rel="noopener"
-    >
-      Buy Now for $27
-    </a>
-  </div>
-</div>
-<!-- END: Modal Templates -->
-
-<!-- START: Special Offer Styles -->
-<style>
-  /* prevent horizontal scroll */
-  body { overflow-x: hidden; }
-
-  /* Section & Button */
-  #special-offer-section {
-    /* already white from inline style */
-  }
-  #special-offer-btn.gift-box {
-    background: #d32f2f;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  /* Modal Overlay */
-  .special-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-
-  /* Modal Content */
-  .special-modal-content {
-    background: #fff;
-    padding: 24px;
-    width: 90vw;
-    max-width: 400px;
-    border-radius: 8px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  }
-  .special-modal-content.final {
-    background: #ffeb3b;
-  }
-  .special-modal-content img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 16px;
-  }
-
-  /* Pricing tweaks */
-  .old-price1,
-  .old-price2 {
-    text-decoration: line-through;
-    color: #888;
-    margin: 0 0.5em;
-    font-size: 1em;
-  }
-  .new-price {
-    font-size: 2.4em;
-    font-weight: bold;
-    color: #ff4444;
-  }
-
-  .special-modal-content.final h2 {
-    font-size: 2.4em;
-    font-weight: bold;
-    color: #d32f2f;
-    margin: 12px 0;
-  }
-
-  .final-intro {
-    font-size: 1em;
-    margin: 12px 0;
-    color: #333;
-  }
-
-  #countdown-timer {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 8px 0;
-    color: #333;
-  }
-
-  .special-buy {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 12px 24px;
-    background: #d32f2f;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: opacity 0.3s;
-  }
-
-  .special-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: transparent;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: #666;
-  }
-</style>
-<!-- END: Special Offer Styles -->
-
-<!-- START: Special Offer Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn    = document.getElementById('special-offer-btn');
-    const m1     = document.getElementById('special-modal-1');
-    const m2     = document.getElementById('special-modal-2');
-    const closes = document.querySelectorAll('.special-close');
-    let countdownInterval;
-
-    // Open first modal
-    btn.addEventListener('click', () => {
-      m1.style.display = 'flex';
-    });
-
-    // Close handlers
-    closes.forEach(el => {
-      el.addEventListener('click', e => {
-        const parent = e.target.closest('.special-modal');
-        parent.style.display = 'none';
-
-        if (parent.id === 'special-modal-1') {
-          // Show second modal and start timer
-          m2.style.display = 'flex';
-          startCountdown();
-        }
-      });
-    });
-
-    function startCountdown() {
-      let timeLeft = 30 * 60; // 30 minutes in seconds
-      const timerEl = document.getElementById('countdown-timer');
-
-      countdownInterval = setInterval(() => {
-        const mins = Math.floor(timeLeft / 60);
-        const secs = timeLeft % 60;
-        timerEl.textContent = 
-          \`\${String(mins).padStart(2,'0')}:\${String(secs).padStart(2,'0')}\`;
-        timeLeft--;
-
-        if (timeLeft < 0) {
-          clearInterval(countdownInterval);
-          const buyLink = m2.querySelector('.special-buy');
-          buyLink.style.pointerEvents = 'none';
-          buyLink.style.opacity = '0.5';
-        }
-      }, 1000);
-    }
-  });
-</script>
-<!-- END: Special Offer Script -->
 
 
 

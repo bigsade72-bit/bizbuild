@@ -926,12 +926,30 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         <span style="display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(120deg, #ff4444, #b30000); color: #fff; text-align: center; line-height: 1.2em; font-weight: bold; font-size: 0.85em;">✔</span>
         Our ad strategies help you resonate with your audience while delivering measurable growth.
       </li>
-      <!-- Add other list items as needed -->
+      <!-- …other list items… -->
     </ul>
   </div>
 
   <!-- Floating Offer Icon -->
-  <div id="offerIcon" style="position: absolute; top: 1em; right: 1em; width: 50px; height: 50px; background: linear-gradient(120deg, #ff4444, #b30000); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5em; cursor: pointer; z-index: 2;">🎁</div>
+  <div
+    id="offerIcon"
+    style="
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(120deg, #ff4444, #b30000);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 2;
+    "
+  >🎁</div>
 
   <!-- First Offer Modal -->
   <div id="offer1Overlay" class="offer-overlay">
@@ -970,6 +988,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       inset: 0;
       background: rgba(0, 0, 0, 0.6);
       z-index: 9999;
+      display: flex;
       justify-content: center;
       align-items: center;
     }
@@ -1055,10 +1074,12 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       var timerInt;
       var secondShown = localStorage.getItem('offer2Shown');
 
+      // always-visible icon
       icon.addEventListener('click', function () {
         o1.style.display = 'flex';
       });
 
+      // close first → show second once
       close1.addEventListener('click', function () {
         o1.style.display = 'none';
         if (!secondShown) {
@@ -1069,6 +1090,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         }
       });
 
+      // close second
       close2.addEventListener('click', function () {
         o2.style.display = 'none';
         clearInterval(timerInt);
@@ -1076,9 +1098,9 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
       function startCountdown() {
         var end = Date.now() + 30 * 60 * 1000;
-        update();
-        timerInt = setInterval(update, 1000);
-        function update() {
+        tick();
+        timerInt = setInterval(tick, 1000);
+        function tick() {
           var diff = Math.max(0, end - Date.now());
           var m = String(Math.floor(diff / 60000)).padStart(2, '0');
           var s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');

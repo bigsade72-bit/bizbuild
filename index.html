@@ -897,219 +897,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- End VIP Level 3 Block --> 
 <!-- Completetly End What We Offer Section -->
 
-<!-- BEGIN: Self-Contained Special Offer + Double Popup Script -->
-<script>
-window.addEventListener('load', function() {
-  // 1) Inject CSS
-  const css = `
-    /* Section & Gift */
-    #soOfferSection {
-      text-align: center;
-      padding: 60px 20px;
-      background: #f5f5f5;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    #soGift {
-      display: inline-block;
-      position: relative;
-      width: 120px;
-      height: 120px;
-      background: #00897b;
-      border-radius: 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    #soGift span {
-      display: block;
-      font-size: 2.5em;
-      color: #fff;
-      line-height: 120px;
-    }
-    #soGift .soRibbon {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%) rotate(-10deg);
-      background: #d32f2f;
-      color: #fff;
-      padding: 6px 12px;
-      font-size: 0.85em;
-      border-radius: 4px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    /* Overlay */
-    .soOverlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    /* Popup base */
-    .soPopup {
-      background: #fff;
-      padding: 24px;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 100%;
-      position: relative;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-    .soPopup img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 16px;
-    }
-    .soPopup h2 {
-      margin: 0 0 10px;
-      font-size: 1.5em;
-    }
-    .soPopup p {
-      margin: 10px 0;
-      font-size: 1.2em;
-    }
-    .soPopup .price {
-      font-size: 2em;
-      font-weight: bold;
-    }
-    .soPopup .soClose {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 1.5em;
-      cursor: pointer;
-      color: #333;
-    }
-    .soPopup a {
-      display: block;
-      background: #e53935;
-      color: #fff;
-      padding: 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    /* Second popup variant */
-    .soPopup.yellow {
-      background: #fff176;
-      border: 2px solid #fbc02d;
-    }
-    .soPopup.yellow h2 {
-      color: #d84315;
-    }
-    .soPopup.yellow a {
-      background: #d84315;
-    }
-    .soPopup .countdown {
-      margin-top: 12px;
-      font-size: 1em;
-      color: #444;
-    }
-
-    @media (max-width: 480px) {
-      .soPopup { padding: 16px; }
-      .soPopup a { font-size: 1em; }
-    }
-  `;
-  const styleTag = document.createElement('style');
-  styleTag.innerHTML = css;
-  document.head.appendChild(styleTag);
-
-  // 2) Build Section + Gift
-  const section = document.createElement('section');
-  section.id = 'soOfferSection';
-  section.innerHTML = `
-    <div id="soGift">
-      <span>🎁</span>
-      <div class="soRibbon">Special Offer (Click Here)</div>
-    </div>
-  `;
-  document.body.insertBefore(section, document.body.firstChild);
-
-  // 3) Build Popups
-  const imgURL = 'https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg';
-
-  const popup1 = document.createElement('div');
-  popup1.id = 'soPopup1';
-  popup1.className = 'soOverlay';
-  popup1.innerHTML = `
-    <div class="soPopup">
-      <span class="soClose" data-close="1">&times;</span>
-      <img src="${imgURL}" alt="Complete 7-Day Launch Kit">
-      <h2>Complete 7-Day Launch Kit</h2>
-      <p>Now only <span class="price">$44</span></p>
-      <a href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank">Pay $44</a>
-    </div>
-  `;
-  document.body.appendChild(popup1);
-
-  const popup2 = document.createElement('div');
-  popup2.id = 'soPopup2';
-  popup2.className = 'soOverlay';
-  popup2.innerHTML = `
-    <div class="soPopup yellow">
-      <span class="soClose" data-close="2">&times;</span>
-      <img src="${imgURL}" alt="Complete 7-Day Launch Kit">
-      <h2>⚡ Final Offer – 30 Minutes Only ⚡</h2>
-      <p>Now only <span class="price">$27</span></p>
-      <a href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank">Pay $27</a>
-      <p class="countdown">This offer disappears in <span id="soCountdown">30:00</span></p>
-    </div>
-  `;
-  document.body.appendChild(popup2);
-
-  // 4) Logic: open/close + countdown
-  const gift = document.getElementById('soGift');
-  const closeButtons = document.querySelectorAll('.soClose');
-  const countdownEl = document.getElementById('soCountdown');
-  let countdownTimer, remaining = 30 * 60;
-
-  gift.addEventListener('click', () => {
-    popup1.style.display = 'flex';
-  });
-
-  closeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const variant = btn.getAttribute('data-close');
-      if (variant === '1') {
-        popup1.style.display = 'none';
-        popup2.style.display = 'flex';
-        startCountdown();
-      } else {
-        popup2.style.display = 'none';
-        clearInterval(countdownTimer);
-      }
-    });
-  });
-
-  function startCountdown() {
-    function tick() {
-      const m = String(Math.floor(remaining / 60)).padStart(2, '0');
-      const s = String(remaining % 60).padStart(2, '0');
-      countdownEl.textContent = `${m}:${s}`;
-      if (remaining > 0) {
-        remaining--;
-      } else {
-        clearInterval(countdownTimer);
-        popup2.style.display = 'none';
-      }
-    }
-    tick();
-    countdownTimer = setInterval(tick, 1000);
-  }
-});
-</script>
-<!-- END: Self-Contained Special Offer + Double Popup Script -->
-
 
 <!-- START: Section Divider -->
 <hr
@@ -1122,6 +909,217 @@ window.addEventListener('load', function() {
 />
 <!-- END: Section Divider -->
 
+<!-- START: Special Offer Section -->
+<section
+  id="specialOfferSection"
+  style="
+    background: #f5f5f5;
+    color: #000;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  "
+>
+  <h2 style="font-size: 2em; margin-bottom: 20px;">Special Offer</h2>
+  <button
+    id="specialOfferBtn"
+    style="
+      background: #00897b;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+    "
+  >
+    Click Here
+  </button>
+
+  <!-- First Popup -->
+  <div id="specialPopup1" class="special-popup-overlay">
+    <div class="special-popup-content">
+      <span id="specialClose1" class="special-popup-close">&times;</span>
+      <img
+        src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
+        alt="Complete Biz Launch Kit"
+      />
+      <h2>Complete 7-Day Launch Kit</h2>
+      <p>Now only <strong class="special-price-red">$44</strong></p>
+      <a
+        href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42"
+        target="_blank"
+        class="special-popup-cta"
+      >Pay $44</a>
+    </div>
+  </div>
+
+  <!-- Second Popup -->
+  <div id="specialPopup2" class="special-popup-overlay">
+    <div class="special-popup-content special-popup-yellow">
+      <span id="specialClose2" class="special-popup-close">&times;</span>
+      <img
+        src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
+        alt="Complete Biz Launch Kit"
+      />
+      <h2>⚡ Final Offer – 30 Minutes Only ⚡</h2>
+      <p>Now only <strong class="special-price-orange">$27</strong></p>
+      <a
+        href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
+        target="_blank"
+        class="special-popup-cta"
+      >Pay $27</a>
+      <p class="special-countdown">This offer disappears in <span id="specialCountdown">30:00</span></p>
+    </div>
+  </div>
+
+  <style>
+    /* Overlay backdrop */
+    .special-popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Popup box */
+    .special-popup-content {
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Yellow variant */
+    .special-popup-yellow {
+      background: #fff176;
+      border: 2px solid #fbc02d;
+    }
+    .special-popup-yellow h2 {
+      color: #d84315;
+    }
+    .special-popup-yellow .special-popup-cta {
+      background: #d84315;
+    }
+
+    .special-popup-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .special-popup-content img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .special-popup-content h2 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+    }
+
+    .special-popup-content p {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .special-price-red {
+      color: #e53935;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .special-price-orange {
+      color: #d84315;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    .special-popup-cta {
+      display: block;
+      background: #e53935;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .special-countdown {
+      margin-top: 12px;
+      font-size: 1em;
+      color: #444;
+    }
+
+    @media (max-width: 480px) {
+      .special-popup-content {
+        padding: 16px;
+      }
+      .special-popup-cta {
+        font-size: 1em;
+      }
+    }
+  </style>
+
+  <script>
+    (function() {
+      var btn     = document.getElementById('specialOfferBtn');
+      var pop1    = document.getElementById('specialPopup1');
+      var pop2    = document.getElementById('specialPopup2');
+      var close1  = document.getElementById('specialClose1');
+      var close2  = document.getElementById('specialClose2');
+      var countdownEl = document.getElementById('specialCountdown');
+      var timer;
+
+      btn.addEventListener('click', function() {
+        pop1.style.display = 'flex';
+      });
+
+      close1.addEventListener('click', function() {
+        pop1.style.display = 'none';
+        pop2.style.display = 'flex';
+        startTimer(30 * 60); // 30 minutes
+      });
+
+      close2.addEventListener('click', function() {
+        pop2.style.display = 'none';
+        clearInterval(timer);
+      });
+
+      function startTimer(seconds) {
+        function tick() {
+          var m = Math.floor(seconds / 60);
+          var s = seconds % 60;
+          countdownEl.textContent =
+            String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+          if (seconds > 0) {
+            seconds--;
+          } else {
+            clearInterval(timer);
+            pop2.style.display = 'none';
+          }
+        }
+        tick();
+        timer = setInterval(tick, 1000);
+      }
+    })();
+  </script>
+</section>
+<!-- END: Special Offer Section -->
 
 <!-- START: Global Impact + Benefits Block -->
 <section style="width: 100%; padding: 3em 1.5em 1.5em; text-align: center;">

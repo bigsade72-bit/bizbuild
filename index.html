@@ -897,219 +897,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- End VIP Level 3 Block --> 
 <!-- Completetly End What We Offer Section -->
 
-<!-- START: Special Offer Section & Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // 1) Inject all CSS
-  var style = document.createElement('style');
-  style.textContent = `
-    /* Section wrapper */
-    #soOfferSection {
-      position: relative;
-      padding: 60px 0;
-      background-color: #fafafa;
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
-    /* Gift icon */
-    #soGift {
-      display: inline-block;
-      position: relative;
-      width: 80px;
-      height: 80px;
-      background-color: #00897b;
-      border-radius: 50%;
-      color: #fff;
-      font-size: 2em;
-      line-height: 80px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    #soGift::after {
-      content: 'Special Offer';
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      transform: translateY(-50%) rotate(-30deg);
-      transform-origin: left center;
-      background-color: #d32f2f;
-      color: #fff;
-      padding: 4px 8px;
-      font-size: 0.75em;
-      border-radius: 3px;
-      margin-left: 10px;
-      white-space: nowrap;
-    }
-    /* Overlay backdrop */
-    .so-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 10000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Modal box */
-    .so-modal {
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 24px;
-      max-width: 420px;
-      width: 90%;
-      position: relative;
-    }
-    .so-modal img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-bottom: 16px;
-    }
-    .so-modal h2 {
-      margin: 0 0 12px;
-      font-size: 1.6em;
-      color: #333;
-    }
-    .so-pricing {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .so-pricing .old-price {
-      text-decoration: line-through;
-      color: #666;
-      font-size: 1em;
-    }
-    .so-pricing .new-price {
-      font-size: 2.4em;
-      color: #e53935;
-      font-weight: bold;
-    }
-    .so-cta {
-      display: block;
-      background-color: #e53935;
-      color: #fff;
-      text-align: center;
-      padding: 14px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .so-close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 1.4em;
-      cursor: pointer;
-      color: #333;
-    }
-    #soCountdown {
-      font-size: 1.2em;
-      color: #f57c00;
-      margin: 16px 0;
-      text-align: center;
-    }
-  `;
-  document.head.appendChild(style);
-
-  // 2) Build the special-offer section
-  var section = document.createElement('section');
-  section.id = 'soOfferSection';
-  section.innerHTML = '<div id="soGift">🎁</div>';
-  
-  // 3) Insert it before your Global Impact block
-  var target = document.getElementById('globalImpact') 
-               || document.getElementById('globalImpactSection');
-  if (target && target.parentNode) {
-    target.parentNode.insertBefore(section, target);
-  } else {
-    document.body.insertBefore(section, document.body.firstChild);
-  }
-
-  // 4) Helper to create overlays
-  function makeOverlay(id, innerHTML) {
-    var ov = document.createElement('div');
-    ov.id = id;
-    ov.className = 'so-overlay';
-    ov.innerHTML = innerHTML;
-    document.body.appendChild(ov);
-    return ov;
-  }
-
-  // 5) Two modals with your specified image
-  var imgURL = 'https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg';
-
-  var overlay1 = makeOverlay('soOverlay1', `
-    <div class="so-modal">
-      <span class="so-close" id="soClose1">&times;</span>
-      <img src="${imgURL}" alt="Complete Business Launch Kit">
-      <h2>Complete 7-Day Launch Kit</h2>
-      <div class="so-pricing">
-        <span class="old-price">$1298</span>
-        <span class="new-price">→ $44</span>
-      </div>
-      <a class="so-cta" href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank">Pay $44</a>
-    </div>
-  `);
-
-  var overlay2 = makeOverlay('soOverlay2', `
-    <div class="so-modal">
-      <span class="so-close" id="soClose2">&times;</span>
-      <img src="${imgURL}" alt="Complete Business Launch Kit">
-      <h2>Special 30-Minute Offer</h2>
-      <div id="soCountdown">30:00</div>
-      <div class="so-pricing">
-        <span class="old-price">$1298</span>
-        <span class="new-price">→ $27</span>
-      </div>
-      <a class="so-cta" href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank">Pay $27</a>
-    </div>
-  `);
-
-  // 6) Open/close logic + one-time second offer + countdown
-  var shownSecond = sessionStorage.getItem('so2shown');
-  var gift    = document.getElementById('soGift');
-  var close1  = document.getElementById('soClose1');
-  var close2  = document.getElementById('soClose2');
-  var timerEl = document.getElementById('soCountdown');
-  var timerId;
-
-  gift.addEventListener('click', function() {
-    overlay1.style.display = 'flex';
-  });
-
-  close1.addEventListener('click', function() {
-    overlay1.style.display = 'none';
-    if (!shownSecond) {
-      overlay2.style.display = 'flex';
-      sessionStorage.setItem('so2shown', 'true');
-      startTimer(30 * 60 * 1000);
-    }
-  });
-
-  close2.addEventListener('click', function() {
-    overlay2.style.display = 'none';
-    clearInterval(timerId);
-  });
-
-  function startTimer(duration) {
-    var end = Date.now() + duration;
-    tick();
-    timerId = setInterval(tick, 1000);
-    function tick() {
-      var diff = Math.max(0, end - Date.now());
-      var m = String(Math.floor(diff / 60000)).padStart(2, '0');
-      var s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-      timerEl.textContent = m + ':' + s;
-      if (diff <= 0) clearInterval(timerId);
-    }
-  }
-});
-</script>
-<!-- END: Special Offer Section & Script -->
-
-
 <!-- START: Section Divider -->
 <hr
   style="
@@ -1120,6 +907,79 @@ document.addEventListener('DOMContentLoaded', function() {
   "
 />
 <!-- END: Section Divider -->
+
+<!-- START: Special Offer Section -->
+<section id="specialOfferSection" style="text-align:center; padding:80px 20px; background:#f5f5f5; position:relative; font-family:sans-serif;">
+  <div id="giftBox" style="display:inline-block; position:relative; width:120px; height:120px; background:#00897b; border-radius:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+    <span style="font-size:2.5em; color:#fff; line-height:120px;">🎁</span>
+    <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%) rotate(-10deg); background:#d32f2f; color:#fff; padding:6px 12px; font-size:0.85em; border-radius:4px; font-weight:bold;">
+      Special Offer (Click Here)
+    </div>
+  </div>
+</section>
+
+<!-- START: First Popup -->
+<div id="popup1" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:30px; border-radius:10px; max-width:400px; width:90%; position:relative; text-align:center;">
+    <span onclick="closePopup1()" style="position:absolute; top:12px; right:16px; font-size:1.5em; cursor:pointer;">&times;</span>
+    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" style="width:100%; border-radius:8px; margin-bottom:20px;">
+    <h2 style="margin:0 0 10px;">Complete 7-Day Launch Kit</h2>
+    <p style="font-size:1.2em; margin:10px 0;">Now only <strong style="font-size:2em; color:#e53935;">$44</strong></p>
+    <a href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank" style="display:block; background:#e53935; color:#fff; padding:12px; border-radius:6px; text-decoration:none; font-weight:bold;">Pay $44</a>
+  </div>
+</div>
+
+<!-- START: Second Popup -->
+<div id="popup2" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#fff176; padding:30px; border-radius:10px; max-width:400px; width:90%; position:relative; text-align:center; border:2px solid #fbc02d;">
+    <span onclick="closePopup2()" style="position:absolute; top:12px; right:16px; font-size:1.5em; cursor:pointer;">&times;</span>
+    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" style="width:100%; border-radius:8px; margin-bottom:20px;">
+    <h2 style="margin:0 0 10px;">⚡ Final Offer – 30 Minutes Only ⚡</h2>
+    <p style="font-size:1.2em; margin:10px 0;">Now only <strong style="font-size:2em; color:#d84315;">$27</strong></p>
+    <a href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank" style="display:block; background:#d84315; color:#fff; padding:12px; border-radius:6px; text-decoration:none; font-weight:bold;">Pay $27</a>
+    <p style="margin-top:12px; font-size:0.9em; color:#555;">This offer disappears in <span id="countdown">30:00</span></p>
+  </div>
+</div>
+
+<!-- START: Script Logic -->
+<script>
+  const giftBox = document.getElementById('giftBox');
+  const popup1 = document.getElementById('popup1');
+  const popup2 = document.getElementById('popup2');
+  const countdown = document.getElementById('countdown');
+  let timer;
+
+  giftBox.addEventListener('click', () => {
+    popup1.style.display = 'flex';
+  });
+
+  function closePopup1() {
+    popup1.style.display = 'none';
+    popup2.style.display = 'flex';
+    startCountdown(30 * 60);
+  }
+
+  function closePopup2() {
+    popup2.style.display = 'none';
+    clearInterval(timer);
+  }
+
+  function startCountdown(seconds) {
+    function update() {
+      const min = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const sec = String(seconds % 60).padStart(2, '0');
+      countdown.textContent = `${min}:${sec}`;
+      if (seconds > 0) {
+        seconds--;
+      } else {
+        clearInterval(timer);
+      }
+    }
+    update();
+    timer = setInterval(update, 1000);
+  }
+</script>
+<!-- END: Special Offer Script Logic -->
 
 <!-- START: Global Impact + Benefits Block -->
 <section style="width: 100%; padding: 3em 1.5em 1.5em; text-align: center;">

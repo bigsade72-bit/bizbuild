@@ -1027,6 +1027,28 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </style>  <!-- <-- close this No Page widening section tag -->
 
 
+<!-- FAQ Auto-Tagger: paste this just above your FAQ section -->
+<script>
+  (function(){
+    const me   = document.currentScript;
+    const faqs = me.nextElementSibling;
+    const title= faqs?.querySelector('h2.faq-title');
+
+    if (
+      faqs &&
+      faqs.matches('section.faq-section') &&
+      title &&
+      title.textContent.trim().toLowerCase().includes('frequently asked questions')
+    ) {
+      faqs.id = 'faq';
+      // console.log('✅ FAQ section tagged with id="faq"');
+    } else {
+      console.warn('⚠️ FAQ Auto-Tagger: next element isn’t your FAQ section.');
+    }
+  })();
+</script>
+<!-- END FAQ Auto-Tagger: paste this just above your FAQ section -->
+
 
 <!-- START: FAQ Section -->
 <section class="faq-section">
@@ -1334,6 +1356,166 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
 <!-- ✅ END: Bizbuild Ads Intake Wizard -->  
 
+
+<!-- BEGIN: Exit Intent Offer Script – paste this just above </body> -->
+<style>
+  /* Overlay & Modal */
+  #exitIntentOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+  #exitIntentModal {
+    background: #fff;
+    border: 2px solid #aa0000;
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    color: #000;
+  }
+  #exitIntentClose {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.4em;
+    cursor: pointer;
+    color: #444;
+  }
+  #exitIntentCountdown {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #aa0000;
+    text-align: center;
+    margin: 10px 0 15px;
+  }
+  #exitIntentModal img {
+    width: 100%;
+    border: 2px solid #aa0000;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  #exitIntentModal h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #000;
+  }
+  #exitIntentModal .pricing {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+  }
+  #exitIntentModal .pricing .old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 1em;
+  }
+  #exitIntentModal .pricing .new-price {
+    color: #ff4444;
+    font-size: 2.8em;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255,68,68,0.8);
+  }
+  #exitIntentModal a.cta {
+    display: block;
+    text-align: center;
+    background: #ff4444;
+    color: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+</style>
+
+<div id="exitIntentOverlay">
+  <div id="exitIntentModal">
+    <span id="exitIntentClose">&times;</span>
+    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
+         alt="Complete Business Launch Kit">
+    <h2>Complete 7 Day Launch Kit</h2>
+    <div id="exitIntentCountdown">Loading timer…</div>
+    <div class="pricing">
+      <span class="old-price">$1298</span>
+      <span class="new-price">→ $27</span>
+    </div>
+    <a class="cta"
+       href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
+       target="_blank">
+      Pay Now
+    </a>
+  </div>
+</div>
+
+<script>
+(function() {
+  const triggerEl   = document.getElementById('faq');
+  const overlay     = document.getElementById('exitIntentOverlay');
+  const closeBtn    = document.getElementById('exitIntentClose');
+  const countdownEl = document.getElementById('exitIntentCountdown');
+  let hasFired      = false;
+  let intervalId;
+
+  // Get current time in New York
+  function nowInNY() {
+    return new Date(
+      new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
+    );
+  }
+
+  // Update countdown to next 11:59:59.999pm EST
+  function updateCountdown() {
+    const now  = nowInNY();
+    const end  = new Date(now);
+    end.setHours(23,59,59,999);
+    if (now > end) end.setDate(end.getDate() + 1);
+    let diff = end - now;
+    const h = Math.floor(diff / 3600000);
+    diff -= h * 3600000;
+    const m = Math.floor(diff / 60000);
+    diff -= m * 60000;
+    const s = Math.floor(diff / 1000);
+    countdownEl.textContent =
+      `${h.toString().padStart(2,'0')}h `
+      + `${m.toString().padStart(2,'0')}m `
+      + `${s.toString().padStart(2,'0')}s`;
+  }
+
+  function startCountdown() {
+    updateCountdown();
+    intervalId = setInterval(updateCountdown, 1000);
+  }
+
+  function showExitIntent() {
+    overlay.style.display = 'flex';
+    startCountdown();
+  }
+
+  closeBtn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    clearInterval(intervalId);
+  });
+
+  window.addEventListener('scroll', () => {
+    if (hasFired) return;
+    const rect = triggerEl.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom > 0) {
+      hasFired = true;
+      showExitIntent();
+    }
+  });
+})();
+</script>
+<!-- END: Exit Intent Offer Script -->
 
 <!-- START: Footer -->
 <footer style="background: #000; color: #bbb; padding: 2em 1em; text-align: center; font-size: 0.85em;">

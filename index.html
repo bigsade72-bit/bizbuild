@@ -25,7 +25,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Not Just Clicks — Social Media Ads That Convert!</title>
+<title>Not Just Clicks — Social Media Ads That Convert.</title>
 <style>
   body {
     margin: 0;
@@ -293,7 +293,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     </div>
     <div class="title-group">
       <span>Not Just Clicks.</span>
-      <span>Ads That Convert!</span>
+      <span>Ads That Convert.</span>
     </div>
     <h2>Strategy → Traffic → Measurable ROI</h2>
   </header>
@@ -910,7 +910,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- END: Section Divider -->
 
 <!-- START: Special Offer Section -->
-<section id="special-offer-section">
+<section id="special-offer-section" style="background: #fff; text-align: center; padding: 40px 20px;">
   <button id="special-offer-btn" class="gift-box">
     🎁 Special Offer
   </button>
@@ -926,13 +926,19 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
       alt="Complete Biz Launch Kit"
     />
-    <h2>Special Price: $44</h2>
+    <h2>
+      <span class="old-price1">$1208</span>
+      <span class="old-price2">$98</span>
+      <span class="new-price">$44</span>
+    </h2>
     <a
       href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42"
       class="special-buy"
       target="_blank"
       rel="noopener"
-    >Buy Now for $44</a>
+    >
+      Buy Now for $44
+    </a>
   </div>
 </div>
 
@@ -944,14 +950,19 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
       alt="Complete Biz Launch Kit"
     />
+    <p class="final-intro">
+      OK, you’re making us work here, here’s our final offer.
+    </p>
+    <p id="countdown-timer">30:00</p>
     <h2>Final Offer: $27</h2>
-    <p class="urgency">Hurry—this is your last chance!</p>
     <a
       href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
       class="special-buy"
       target="_blank"
       rel="noopener"
-    >Buy Now for $27</a>
+    >
+      Buy Now for $27
+    </a>
   </div>
 </div>
 <!-- END: Modal Templates -->
@@ -963,8 +974,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
   /* Section & Button */
   #special-offer-section {
-    text-align: center;
-    padding: 40px 20px;
+    /* already white from inline style */
   }
   #special-offer-btn.gift-box {
     background: #d32f2f;
@@ -1006,15 +1016,41 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     height: auto;
     margin-bottom: 16px;
   }
-  .special-modal-content h2 {
-    margin: 12px 0;
-    font-size: 1.5rem;
+
+  /* Pricing tweaks */
+  .old-price1,
+  .old-price2 {
+    text-decoration: line-through;
+    color: #888;
+    margin: 0 0.5em;
+    font-size: 1em;
   }
-  .special-modal-content .urgency {
-    color: #d32f2f;
+  .new-price {
+    font-size: 2.4em;
     font-weight: bold;
-    margin-bottom: 16px;
+    color: #ff4444;
   }
+
+  .special-modal-content.final h2 {
+    font-size: 2.4em;
+    font-weight: bold;
+    color: #d32f2f;
+    margin: 12px 0;
+  }
+
+  .final-intro {
+    font-size: 1em;
+    margin: 12px 0;
+    color: #333;
+  }
+
+  #countdown-timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 8px 0;
+    color: #333;
+  }
+
   .special-buy {
     display: inline-block;
     margin-top: 8px;
@@ -1023,7 +1059,9 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
+    transition: opacity 0.3s;
   }
+
   .special-close {
     position: absolute;
     top: 12px;
@@ -1044,6 +1082,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     const m1     = document.getElementById('special-modal-1');
     const m2     = document.getElementById('special-modal-2');
     const closes = document.querySelectorAll('.special-close');
+    let countdownInterval;
 
     // Open first modal
     btn.addEventListener('click', () => {
@@ -1055,14 +1094,39 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       el.addEventListener('click', e => {
         const parent = e.target.closest('.special-modal');
         parent.style.display = 'none';
+
         if (parent.id === 'special-modal-1') {
+          // Show second modal and start timer
           m2.style.display = 'flex';
+          startCountdown();
         }
       });
     });
+
+    function startCountdown() {
+      let timeLeft = 30 * 60; // 30 minutes in seconds
+      const timerEl = document.getElementById('countdown-timer');
+
+      countdownInterval = setInterval(() => {
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        timerEl.textContent = 
+          \`\${String(mins).padStart(2,'0')}:\${String(secs).padStart(2,'0')}\`;
+        timeLeft--;
+
+        if (timeLeft < 0) {
+          clearInterval(countdownInterval);
+          const buyLink = m2.querySelector('.special-buy');
+          buyLink.style.pointerEvents = 'none';
+          buyLink.style.opacity = '0.5';
+        }
+      }, 1000);
+    }
   });
 </script>
 <!-- END: Special Offer Script -->
+
+
 
 <!-- START: Global Impact + Benefits Block -->
 <section style="width: 100%; padding: 3em 1.5em 1.5em; text-align: center;">

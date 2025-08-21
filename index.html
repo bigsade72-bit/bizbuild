@@ -913,12 +913,14 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <section
   id="special-offer-section"
   style="
-    background: #FFEB3B;        /* bright yellow background */
-    border-radius: 12px;        /* rounded corners */
+    background: #FFEB3B;       /* yellow background */
+    border-radius: 12px;       /* rounded corners */
     padding: 40px 20px;
     text-align: center;
     margin: 2em auto;
     max-width: 400px;
+    position: relative;
+    z-index: 1000;
   "
 >
   <button
@@ -932,6 +934,8 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       font-size: 1.1rem;
       border-radius: 4px;
       cursor: pointer;
+      position: relative;
+      z-index: 1001;
     "
   >
     🎁 Special Offer
@@ -941,34 +945,49 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
 <!-- START: Modal Templates -->
 <!-- Modal 1: $44 Offer -->
-<div id="special-modal-1" class="special-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:9999;">
+<div
+  id="special-modal-1"
+  class="special-modal"
+  style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
+         justify-content:center; align-items:center; z-index:9999;"
+>
   <div
     class="special-modal-content"
     style="
       background:#fff;
       padding:24px;
-      max-width:400px;
       width:90vw;
+      max-width:400px;
       border-radius:8px;
       text-align:center;
       box-shadow:0 8px 24px rgba(0,0,0,0.2);
       position:relative;
     "
   >
-    <button class="special-close" data-target="1"
-      style="position:absolute;top:12px;right:12px;background:transparent;border:none;font-size:1.4rem;cursor:pointer;color:#666;">
-      &times;
-    </button>
+    <button
+      class="special-close"
+      data-target="1"
+      style="
+        position:absolute; top:12px; right:12px;
+        background:transparent; border:none;
+        font-size:1.4rem; cursor:pointer; color:#666;
+      "
+    >&times;</button>
+
     <img
       src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
       alt="Complete Biz Launch Kit"
-      style="width:100%;border-radius:4px;margin-bottom:16px;"
+      style="width:100%; border-radius:4px; margin-bottom:16px;"
     />
-    <h2 style="margin:12px 0;font-size:1.5rem;line-height:1.2;">
-      <s style="color:#888;margin-right:0.5em;">$1208</s>
-      <s style="color:#888;margin-right:0.5em;">$98</s>
-      <span style="font-size:2.4em;font-weight:bold;color:#ff4444;">$44</span>
+
+    <h2 style="margin:12px 0; line-height:1.2;">
+      <s style="color:#888; margin-right:0.5em; font-size:1em;">$1208</s>
+      <s style="color:#888; margin-right:0.5em; font-size:1em;">$98</s>
+      <span style="font-size:2.4em; font-weight:bold; color:#ff4444;">
+        $44
+      </span>
     </h2>
+
     <a
       href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42"
       class="special-buy"
@@ -983,51 +1002,59 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         text-decoration:none;
         border-radius:4px;
       "
-    >
-      Buy Now for $44
-    </a>
+    >Buy Now for $44</a>
   </div>
 </div>
 
 <!-- Modal 2: Final $27 Offer -->
-<div id="special-modal-2" class="special-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:9999;">
+<div
+  id="special-modal-2"
+  class="special-modal"
+  style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
+         justify-content:center; align-items:center; z-index:9999;"
+>
   <div
-    class="special-modal-content"
+    class="special-modal-content final"
     style="
       background:#ffeb3b;
       padding:24px;
-      max-width:400px;
       width:90vw;
+      max-width:400px;
       border-radius:8px;
       text-align:center;
       box-shadow:0 8px 24px rgba(0,0,0,0.2);
       position:relative;
     "
   >
-    <button class="special-close" data-target="2"
-      style="position:absolute;top:12px;right:12px;background:transparent;border:none;font-size:1.4rem;cursor:pointer;color:#666;">
-      &times;
-    </button>
+    <button
+      class="special-close"
+      data-target="2"
+      style="
+        position:absolute; top:12px; right:12px;
+        background:transparent; border:none;
+        font-size:1.4rem; cursor:pointer; color:#666;
+      "
+    >&times;</button>
+
     <img
       src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
       alt="Complete Biz Launch Kit"
-      style="width:100%;border-radius:4px;margin-bottom:16px;"
+      style="width:100%; border-radius:4px; margin-bottom:16px;"
     />
-    <p
-      class="final-intro"
-      style="font-size:1em;color:#333;margin:12px 0;"
-    >
+
+    <p style="font-size:1em; color:#333; margin:12px 0;">
       OK, you’re making us work here, here’s our final offer.
     </p>
+
     <p
       id="countdown-timer"
-      style="font-size:1.2rem;font-weight:bold;color:#333;margin:8px 0;"
-    >
-      30:00
-    </p>
-    <h2 style="margin:12px 0;font-size:2.4em;font-weight:bold;color:#d32f2f;">
+      style="font-size:1.2rem; font-weight:bold; color:#333; margin:8px 0;"
+    >30:00</p>
+
+    <h2 style="margin:12px 0; font-size:2.4em; font-weight:bold; color:#d32f2f;">
       Final Offer: $27
     </h2>
+
     <a
       href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
       class="special-buy"
@@ -1043,12 +1070,23 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         border-radius:4px;
         transition:opacity 0.3s;
       "
-    >
-      Buy Now for $27
-    </a>
+    >Buy Now for $27</a>
   </div>
 </div>
 <!-- END: Modal Templates -->
+
+<!-- START: Special Offer Styles -->
+<style>
+  /* Ensure everything fits on screen */
+  body { overflow-x: hidden; }
+
+  /* Flex-centering for modals */
+  .special-modal {
+    display: none;
+    display: flex;
+  }
+</style>
+<!-- END: Special Offer Styles -->
 
 <!-- START: Special Offer Script -->
 <script>
@@ -1057,45 +1095,62 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     const m1     = document.getElementById('special-modal-1');
     const m2     = document.getElementById('special-modal-2');
     const closes = document.querySelectorAll('.special-close');
+    const DURATION = 30 * 60; // 30 minutes in seconds
     let countdownInterval;
 
-    // Open first modal on 🎁 click
+    // Open first modal
     btn.addEventListener('click', () => {
       m1.style.display = 'flex';
     });
 
-    // Close btns: hide current, show next & start timer
+    // Handle closing & next-step logic
     closes.forEach(el => {
       el.addEventListener('click', e => {
         const parent = e.target.closest('.special-modal');
         parent.style.display = 'none';
-
         if (parent.id === 'special-modal-1') {
           m2.style.display = 'flex';
-          startCountdown();
+          startOrResumeCountdown();
         }
       });
     });
 
-    // 30-minute countdown
-    function startCountdown() {
-      let timeLeft = 30 * 60; // seconds
+    function startOrResumeCountdown() {
       const timerEl = document.getElementById('countdown-timer');
+      // get or set start timestamp
+      let startTs = localStorage.getItem('specialOfferStart');
+      if (!startTs) {
+        startTs = Date.now();
+        localStorage.setItem('specialOfferStart', startTs);
+      } else {
+        startTs = parseInt(startTs, 10);
+      }
 
-      countdownInterval = setInterval(() => {
-        const mins = Math.floor(timeLeft / 60);
-        const secs = timeLeft % 60;
+      function updateTimer() {
+        const elapsed   = Math.floor((Date.now() - startTs) / 1000);
+        const remaining = DURATION - elapsed;
+        if (remaining <= 0) {
+          clearInterval(countdownInterval);
+          timerEl.textContent = '00:00';
+          disableBuy();
+          return;
+        }
+        const mins = Math.floor(remaining / 60);
+        const secs = remaining % 60;
         timerEl.textContent =
           `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
-        timeLeft--;
+      }
 
-        if (timeLeft < 0) {
-          clearInterval(countdownInterval);
-          const buyBtn = m2.querySelector('.special-buy');
-          buyBtn.style.pointerEvents = 'none';
-          buyBtn.style.opacity = '0.5';
-        }
-      }, 1000);
+      updateTimer();
+      if (!countdownInterval) {
+        countdownInterval = setInterval(updateTimer, 1000);
+      }
+    }
+
+    function disableBuy() {
+      const buyBtn = m2.querySelector('.special-buy');
+      buyBtn.style.pointerEvents = 'none';
+      buyBtn.style.opacity       = '0.5';
     }
   });
 </script>

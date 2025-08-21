@@ -908,38 +908,25 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 />
 <!-- END: Section Divider -->
 
-<!-- START: Global Impact + Benefits + Floating Offer Icon -->
-<section
-  id="benefitsSection"
-  style="position: relative; width: 100%; padding: 3em 1.5em 3em; text-align: center; background: #002f2d;"
->
-  <div style="max-width: 750px; margin: 0 auto; position: relative; z-index: 1;">
-    <h2 style="font-weight: bold; font-size: 1.5em; margin-bottom: 1em; color: #fff;">
-      We’ve helped
-      <span style="background: linear-gradient(120deg, #ff4444, #b30000); -webkit-background-clip: text; color: transparent; text-decoration: underline; font-weight: bold;">380+</span>
-      businesses across the globe, and have enrolled over
-      <span style="background: linear-gradient(120deg, #ff4444, #b30000); -webkit-background-clip: text; color: transparent; text-decoration: underline; font-weight: bold;">60,000+</span>
-      students in our ads course.
-    </h2>
-    <ul style="list-style: none; padding: 0; margin: 2em auto 0; text-align: left; color: #fff;">
-      <li style="margin-bottom: 1em;">
-        <span style="display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(120deg, #ff4444, #b30000); color: #fff; text-align: center; line-height: 1.2em; font-weight: bold; font-size: 0.85em;">✔</span>
-        Our ad strategies help you resonate with your audience while delivering measurable growth.
-      </li>
-      <!-- …other list items… -->
-    </ul>
-  </div>
+<!-- START: Special Offer Present Script (place this ABOVE your Global Impact section) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Locate your benefits section
+  var section = document.getElementById('benefitsSection');
+  if (!section) return;
+  section.style.position = 'relative';
 
-  <!-- Floating Offer Icon -->
-  <div
-    id="offerIcon"
-    style="
+  // 2. Inject CSS for the gift icon, ribbon, overlays, and modals
+  var style = document.createElement('style');
+  style.textContent = `
+    /* Gift icon + ribbon */
+    #specialGift {
       position: absolute;
-      top: 1em;
-      right: 1em;
+      top: -20px;
+      right: 20px;
       width: 50px;
       height: 50px;
-      background: linear-gradient(120deg, #ff4444, #b30000);
+      background: #004d40;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -947,51 +934,36 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       color: #fff;
       font-size: 1.5em;
       cursor: pointer;
-      z-index: 2;
-    "
-  >🎁</div>
+      z-index: 10;
+    }
+    #specialGift::after {
+      content: 'Special Offer';
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #b30000;
+      color: #fff;
+      padding: 2px 6px;
+      font-size: 0.75em;
+      border-radius: 3px;
+      transform: rotate(-15deg);
+      transform-origin: top right;
+      white-space: nowrap;
+    }
 
-  <!-- First Offer Modal -->
-  <div id="offer1Overlay" class="offer-overlay">
-    <div class="offer-modal">
-      <span class="close" id="offer1Close">&times;</span>
-      <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Complete Business Launch Kit" />
-      <h2>Complete 7-Day Launch Kit</h2>
-      <div class="offer-pricing">
-        <span class="old-price">$1298</span>
-        <span class="new-price">→ $44</span>
-      </div>
-      <a class="cta" href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank">Pay $44</a>
-    </div>
-  </div>
-
-  <!-- Second Offer Modal -->
-  <div id="offer2Overlay" class="offer-overlay">
-    <div id="offer2Modal" class="offer-modal">
-      <span class="close" id="offer2Close">&times;</span>
-      <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Complete Business Launch Kit" />
-      <h2>Special 30-Minute Offer</h2>
-      <div id="offer2Countdown">30:00</div>
-      <div class="offer-pricing">
-        <span class="old-price">$1298</span>
-        <span class="new-price">→ $27</span>
-      </div>
-      <a class="cta" href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank">Pay $27</a>
-    </div>
-  </div>
-
-  <!-- Embedded Styles -->
-  <style>
+    /* Overlay backdrop */
     .offer-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
       z-index: 9999;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
+    /* Modal box */
     .offer-modal {
       background: #fff;
       border-radius: 8px;
@@ -1032,7 +1004,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       color: #ff4444;
       font-size: 2.8em;
       font-weight: bold;
-      text-shadow: 0 0 8px rgba(255, 68, 68, 0.8);
+      text-shadow: 0 0 8px rgba(255,68,68,0.8);
     }
     .offer-modal a.cta {
       display: block;
@@ -1060,58 +1032,133 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       text-align: center;
       margin-bottom: 10px;
     }
-  </style>
+  `;
+  document.head.appendChild(style);
 
-  <!-- Embedded Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var icon = document.getElementById('offerIcon');
-      var o1 = document.getElementById('offer1Overlay');
-      var close1 = document.getElementById('offer1Close');
-      var o2 = document.getElementById('offer2Overlay');
-      var close2 = document.getElementById('offer2Close');
-      var countdownEl = document.getElementById('offer2Countdown');
-      var timerInt;
-      var secondShown = localStorage.getItem('offer2Shown');
+  // 3. Create and insert the gift icon
+  var gift = document.createElement('div');
+  gift.id = 'specialGift';
+  gift.textContent = '🎁';
+  section.insertBefore(gift, section.firstChild);
 
-      // always-visible icon
-      icon.addEventListener('click', function () {
-        o1.style.display = 'flex';
-      });
+  // 4. Build the two overlays + modals and append to body
+  function createOverlay(id, html) {
+    var o = document.createElement('div');
+    o.id = id;
+    o.className = 'offer-overlay';
+    o.innerHTML = html;
+    document.body.appendChild(o);
+    return o;
+  }
 
-      // close first → show second once
-      close1.addEventListener('click', function () {
-        o1.style.display = 'none';
-        if (!secondShown) {
-          o2.style.display = 'flex';
-          localStorage.setItem('offer2Shown', 'true');
-          secondShown = true;
-          startCountdown();
-        }
-      });
+  var modal1 = createOverlay('offer1Overlay', `
+    <div class="offer-modal">
+      <span class="close" id="offer1Close">&times;</span>
+      <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Complete Business Launch Kit"/>
+      <h2>Complete 7-Day Launch Kit</h2>
+      <div class="offer-pricing">
+        <span class="old-price">$1298</span>
+        <span class="new-price">→ $44</span>
+      </div>
+      <a class="cta" href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank">Pay $44</a>
+    </div>
+  `);
 
-      // close second
-      close2.addEventListener('click', function () {
-        o2.style.display = 'none';
-        clearInterval(timerInt);
-      });
+  var modal2 = createOverlay('offer2Overlay', `
+    <div id="offer2Modal" class="offer-modal">
+      <span class="close" id="offer2Close">&times;</span>
+      <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Complete Business Launch Kit"/>
+      <h2>Special 30-Minute Offer</h2>
+      <div id="offer2Countdown">30:00</div>
+      <div class="offer-pricing">
+        <span class="old-price">$1298</span>
+        <span class="new-price">→ $27</span>
+      </div>
+      <a class="cta" href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank">Pay $27</a>
+    </div>
+  `);
 
-      function startCountdown() {
-        var end = Date.now() + 30 * 60 * 1000;
-        tick();
-        timerInt = setInterval(tick, 1000);
-        function tick() {
-          var diff = Math.max(0, end - Date.now());
-          var m = String(Math.floor(diff / 60000)).padStart(2, '0');
-          var s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
-          countdownEl.textContent = m + ':' + s;
-          if (diff <= 0) clearInterval(timerInt);
-        }
-      }
-    });
-  </script>
+  // 5. Wire up the click/close logic
+  var close1 = document.getElementById('offer1Close');
+  var close2 = document.getElementById('offer2Close');
+  var countdownEl = document.getElementById('offer2Countdown');
+  var timerInt;
+  var secondShown = localStorage.getItem('offer2Shown');
+
+  gift.addEventListener('click', function() {
+    modal1.style.display = 'flex';
+  });
+
+  close1.addEventListener('click', function() {
+    modal1.style.display = 'none';
+    if (!secondShown) {
+      modal2.style.display = 'flex';
+      localStorage.setItem('offer2Shown','true');
+      secondShown = true;
+      startCountdown();
+    }
+  });
+
+  close2.addEventListener('click', function() {
+    modal2.style.display = 'none';
+    clearInterval(timerInt);
+  });
+
+  function startCountdown() {
+    var end = Date.now() + 30*60*1000;
+    tick();
+    timerInt = setInterval(tick,1000);
+    function tick() {
+      var diff = Math.max(0, end - Date.now());
+      var m = String(Math.floor(diff/60000)).padStart(2,'0');
+      var s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+      countdownEl.textContent = m + ':' + s;
+      if (diff <= 0) clearInterval(timerInt);
+    }
+  }
+});
+</script>
+<!-- END: Special Offer Present Script -->
+
+<!-- START: Global Impact + Benefits Block -->
+<section style="width: 100%; padding: 3em 1.5em 1.5em; text-align: center;">
+  <div style="max-width: 750px; margin: 0 auto;">
+    <h2 style="font-weight: bold; font-size: 1.5em; margin-bottom: 1em; color: #fff;">
+      We’ve helped 
+      <span style="background: linear-gradient(120deg, #ff4444, #b30000); -webkit-background-clip: text; color: transparent; text-decoration: underline; font-weight: bold;">
+        380+
+      </span> 
+      businesses across the globe, and have enrolled over 
+      <span style="background: linear-gradient(120deg, #ff4444, #b30000); -webkit-background-clip: text; color: transparent; text-decoration: underline; font-weight: bold;">
+        60,000+
+      </span> 
+      students in our ads course.
+    </h2>
+    <ul style="list-style: none; padding: 0; margin: 2em auto 0; text-align: left; color: #fff;">
+      <li style="margin-bottom: 1em;">
+        <span style="display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(120deg, #ff4444, #b30000); color: #fff; text-align: center; line-height: 1.2em; font-weight: bold; font-size: 0.85em;">✔</span>
+        Our ad strategies help you resonate with your audience while delivering measurable growth.
+      </li>
+      <li style="margin-bottom: 1em;">
+        <span style="display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(120deg, #ff4444, #b30000); color: #fff; text-align: center; line-height: 1.2em; font-weight: bold; font-size: 0.85em;">✔</span>
+        We use data-backed creative approaches to elevate performance across platforms.
+      </li>
+      <li style="margin-bottom: 1em;">
+        <span style="display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(120deg, #ff4444, #b30000); color: #fff; text-align: center; line-height: 1.2em; font-weight: bold; font-size: 0.85em;">✔</span>
+        You gain automated systems that scale impact without draining resources.
+      </li>
+      <li style="margin-bottom: 1em;">
+        <span style="display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(120deg, #ff4444, #b30000); color: #fff; text-align: center; line-height: 1.2em; font-weight: bold; font-size: 0.85em;">✔</span>
+        Every campaign reflects regional nuance so you stand out in any market.
+      </li>
+      <li style="margin-bottom: 1em;">
+        <span style="display: inline-block; width: 1.2em; height: 1.2em; border-radius: 50%; background: linear-gradient(120deg, #ff4444, #b30000); color: #fff; text-align: center; line-height: 1.2em; font-weight: bold; font-size: 0.85em;">✔</span>
+        Our clients consistently outperform larger agencies with leaner budgets.
+      </li>
+    </ul>
+  </div>
 </section>
-<!-- END: Global Impact + Benefits + Floating Offer Icon -->
+<!-- END: Global Impact + Benefits Block -->
 
 <!-- START: Niche Diversity Block -->
 <section style="width: 100%; padding: 1.5em 1.5em 3em; text-align: center;">

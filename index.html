@@ -1114,17 +1114,31 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- START: Special Offer Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const btn    = document.getElementById('special-offer-btn');
-    const m1     = document.getElementById('special-modal-1');
-    const m2     = document.getElementById('special-modal-2');
-    const closes = document.querySelectorAll('.special-close');
-    const DURATION = 7 * 60; // 7 minutes in seconds
+    const section          = document.getElementById('special-offer-section');
+    const btn              = document.getElementById('special-offer-btn');
+    const m1               = document.getElementById('special-modal-1');
+    const m2               = document.getElementById('special-modal-2');
+    const closes           = document.querySelectorAll('.special-close');
+    const DURATION         = 7 * 60;                // 7 minutes in seconds
+    const BLOCK_DURATION   = 24 * 60 * 60 * 1000;   // 24 hours in ms
     let countdownInterval;
 
+    // 1) Check if offer is blocked for the day
+    const blockedUntil = localStorage.getItem('specialOfferBlockedUntil');
+    const now = Date.now();
+    if (blockedUntil && now < +blockedUntil) {
+      section.style.display = 'none';
+      return;  // do not initialize any modal logic
+    } else {
+      localStorage.removeItem('specialOfferBlockedUntil');
+    }
+
+    // 2) Open first modal
     btn.addEventListener('click', () => {
       m1.style.display = 'flex';
     });
 
+    // 3) Close handlers
     closes.forEach(el => {
       el.addEventListener('click', e => {
         const parent = e.target.closest('.special-modal');
@@ -1136,14 +1150,15 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       });
     });
 
+    // 4) Countdown / persistence logic
     function startOrResumeCountdown() {
-      // clear any existing timer
+      // clear any existing interval
       if (countdownInterval) {
         clearInterval(countdownInterval);
         countdownInterval = null;
       }
 
-      // set or retrieve the start timestamp
+      // set or get initial timestamp
       let startTs = localStorage.getItem('specialOfferStart');
       if (!startTs) {
         startTs = Date.now();
@@ -1162,7 +1177,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
           clearInterval(countdownInterval);
           countdownInterval = null;
           timerEl.textContent = '00:00';
-          disableBuy();
+          blockOfferForADay();
           return;
         }
 
@@ -1172,20 +1187,27 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
           `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
       }
 
-      // run immediately and then every second
+      // run once & then each second
       updateTimer();
       countdownInterval = setInterval(updateTimer, 1000);
     }
 
-    function disableBuy() {
-      const buyBtn = m2.querySelector('.special-buy');
-      buyBtn.style.pointerEvents = 'none';
-      buyBtn.style.opacity       = '0.5';
+    // 5) When timer expires, block for 24h and hide everything
+    function blockOfferForADay() {
+      // set block-until timestamp
+      localStorage.setItem(
+        'specialOfferBlockedUntil',
+        Date.now() + BLOCK_DURATION
+      );
+      // clear start timestamp
+      localStorage.removeItem('specialOfferStart');
+      // hide modals and section
+      m2.style.display        = 'none';
+      section.style.display   = 'none';
     }
   });
 </script>
 <!-- END: Special Offer Script -->
-
 
 
 

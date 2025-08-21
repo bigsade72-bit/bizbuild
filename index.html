@@ -1016,221 +1016,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </section>
 <!-- END: Niche Diversity Block -->
 
-<!-- START: Special Offer Section -->
-<section
-  id="specialOfferSection"
-  style="
-    background: #f5f5f5;
-    color: #000;
-    padding: 60px 20px;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-  "
->
-  <h2 style="font-size: 2em; margin-bottom: 20px;">Special Offer</h2>
-  <button
-    id="specialOfferBtn"
-    style="
-      background: #00897b;
-      color: #fff;
-      border: none;
-      padding: 14px 28px;
-      font-size: 1em;
-      border-radius: 6px;
-      cursor: pointer;
-    "
-  >
-    Click Here
-  </button>
-
-  <!-- First Popup -->
-  <div id="specialPopup1" class="special-popup-overlay">
-    <div class="special-popup-content">
-      <span id="specialClose1" class="special-popup-close">&times;</span>
-      <img
-        src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
-        alt="Complete Biz Launch Kit"
-      />
-      <h2>Complete 7-Day Launch Kit</h2>
-      <p>Now only <strong class="special-price-red">$44</strong></p>
-      <a
-        href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42"
-        target="_blank"
-        class="special-popup-cta"
-      >Pay $44</a>
-    </div>
-  </div>
-
-  <!-- Second Popup -->
-  <div id="specialPopup2" class="special-popup-overlay">
-    <div class="special-popup-content special-popup-yellow">
-      <span id="specialClose2" class="special-popup-close">&times;</span>
-      <img
-        src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
-        alt="Complete Biz Launch Kit"
-      />
-      <h2>⚡ Final Offer – 30 Minutes Only ⚡</h2>
-      <p>Now only <strong class="special-price-orange">$27</strong></p>
-      <a
-        href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
-        target="_blank"
-        class="special-popup-cta"
-      >Pay $27</a>
-      <p class="special-countdown">This offer disappears in <span id="specialCountdown">30:00</span></p>
-    </div>
-  </div>
-
-  <style>
-    /* Overlay backdrop */
-    .special-popup-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    /* Popup box */
-    .special-popup-content {
-      background: #fff;
-      padding: 24px;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 100%;
-      position: relative;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    /* Yellow variant */
-    .special-popup-yellow {
-      background: #fff176;
-      border: 2px solid #fbc02d;
-    }
-    .special-popup-yellow h2 {
-      color: #d84315;
-    }
-    .special-popup-yellow .special-popup-cta {
-      background: #d84315;
-    }
-
-    .special-popup-close {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 1.5em;
-      cursor: pointer;
-      color: #333;
-    }
-
-    .special-popup-content img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 16px;
-    }
-
-    .special-popup-content h2 {
-      margin: 0 0 10px;
-      font-size: 1.5em;
-    }
-
-    .special-popup-content p {
-      margin: 10px 0;
-      font-size: 1.2em;
-    }
-
-    .special-price-red {
-      color: #e53935;
-      font-size: 2em;
-      font-weight: bold;
-    }
-    .special-price-orange {
-      color: #d84315;
-      font-size: 2em;
-      font-weight: bold;
-    }
-
-    .special-popup-cta {
-      display: block;
-      background: #e53935;
-      color: #fff;
-      padding: 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .special-countdown {
-      margin-top: 12px;
-      font-size: 1em;
-      color: #444;
-    }
-
-    @media (max-width: 480px) {
-      .special-popup-content {
-        padding: 16px;
-      }
-      .special-popup-cta {
-        font-size: 1em;
-      }
-    }
-  </style>
-
-  <script>
-    (function() {
-      var btn     = document.getElementById('specialOfferBtn');
-      var pop1    = document.getElementById('specialPopup1');
-      var pop2    = document.getElementById('specialPopup2');
-      var close1  = document.getElementById('specialClose1');
-      var close2  = document.getElementById('specialClose2');
-      var countdownEl = document.getElementById('specialCountdown');
-      var timer;
-
-      btn.addEventListener('click', function() {
-        pop1.style.display = 'flex';
-      });
-
-      close1.addEventListener('click', function() {
-        pop1.style.display = 'none';
-        pop2.style.display = 'flex';
-        startTimer(30 * 60); // 30 minutes
-      });
-
-      close2.addEventListener('click', function() {
-        pop2.style.display = 'none';
-        clearInterval(timer);
-      });
-
-      function startTimer(seconds) {
-        function tick() {
-          var m = Math.floor(seconds / 60);
-          var s = seconds % 60;
-          countdownEl.textContent =
-            String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-          if (seconds > 0) {
-            seconds--;
-          } else {
-            clearInterval(timer);
-            pop2.style.display = 'none';
-          }
-        }
-        tick();
-        timer = setInterval(tick, 1000);
-      }
-    })();
-  </script>
-</section>
-<!-- END: Special Offer Section -->
-
-
-
-    
 
 <!-- No Page Widening -->
 <style>
@@ -1238,6 +1023,171 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
   *, *::before, *::after { box-sizing: border-box; }
   body { margin: 0; overflow-x: hidden; }
 </style>  <!-- <-- close this No Page widening section tag -->
+
+<!-- START: Special Offer Section -->
+<section id="special-offer-section">
+  <button id="special-offer-btn">Special Offer (Click Here)</button>
+
+  <!-- 1st Modal: $44 Offer -->
+  <div id="special-offer-modal-1" class="special-offer-modal">
+    <div class="special-offer-content">
+      <button class="special-offer-close" data-target="1">&times;</button>
+      <img
+        src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
+        alt="Complete Biz Launch Kit"
+      />
+      <h2>Special Price: $44</h2>
+      <a
+        href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42"
+        class="special-offer-buy"
+        target="_blank"
+        rel="noopener"
+      >Buy Now for $44</a>
+    </div>
+  </div>
+
+  <!-- 2nd Modal: Final $27 Offer -->
+  <div id="special-offer-modal-2" class="special-offer-modal">
+    <div class="special-offer-content final">
+      <button class="special-offer-close" data-target="2">&times;</button>
+      <img
+        src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg"
+        alt="Complete Biz Launch Kit"
+      />
+      <h2>Final Offer: $27</h2>
+      <p class="urgency">Hurry—this is your last chance!</p>
+      <a
+        href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40"
+        class="special-offer-buy"
+        target="_blank"
+        rel="noopener"
+      >Buy Now for $27</a>
+    </div>
+  </div>
+</section>
+<!-- END: Special Offer Section -->
+
+
+<!-- START: Special Offer Styles -->
+<style>
+  /* scope under #special-offer-section */
+  #special-offer-section {
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  #special-offer-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .special-offer-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .special-offer-content {
+    background: #fff;
+    padding: 24px;
+    width: 90vw;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  .special-offer-content.final {
+    background: #ffeb3b;
+  }
+
+  .special-offer-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+  }
+
+  .special-offer-content h2 {
+    margin: 12px 0;
+    font-size: 1.5rem;
+  }
+
+  .special-offer-content .urgency {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .special-offer-buy {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 12px 24px;
+    background: #d32f2f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  .special-offer-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #666;
+  }
+</style>
+<!-- END: Special Offer Styles -->
+
+
+<!-- START: Special Offer Script -->
+<script>
+  (function() {
+    const btn       = document.getElementById('special-offer-btn');
+    const modal1    = document.getElementById('special-offer-modal-1');
+    const modal2    = document.getElementById('special-offer-modal-2');
+    const closeBtns = document.querySelectorAll('.special-offer-close');
+
+    // Open first modal on button click
+    btn.addEventListener('click', () => {
+      modal1.style.display = 'flex';
+    });
+
+    // Close handlers
+    closeBtns.forEach(el => {
+      el.addEventListener('click', e => {
+        const target = e.currentTarget.getAttribute('data-target');
+        if (target === '1') {
+          modal1.style.display = 'none';
+          modal2.style.display = 'flex';
+        } else {
+          modal2.style.display = 'none';
+        }
+      });
+    });
+
+    // Prevent background scroll when modals are open
+    [modal1, modal2].forEach(m => {
+      m.addEventListener('wheel', e => e.preventDefault(), { passive: false });
+    });
+  })();
+</script>
+<!-- END: Special Offer Script -->
 
 
 

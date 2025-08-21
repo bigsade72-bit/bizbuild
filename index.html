@@ -1064,7 +1064,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
   <!-- Embedded Styles -->
   <style>
-    /* Sidebar Tab (always visible) */
+    /* Sidebar Tab */
     #offerTab {
       position: absolute;
       top: 50%;
@@ -1079,7 +1079,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       z-index: 2;
     }
 
-    /* Overlay */
+    /* Overlays */
     .offer-overlay {
       display: none;
       position: fixed;
@@ -1090,7 +1090,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       align-items: center;
     }
 
-    /* Modal */
+    /* Modals */
     .offer-modal {
       background: #fff;
       border-radius: 8px;
@@ -1167,54 +1167,56 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       const KEY = 'dailySidebarOffer';
       const today = new Date().toISOString().slice(0, 10);
 
-      // Only once per day
       const tab = document.getElementById('offerTab');
+      if (!tab) return;
+
+      // prevent repeat show today
       if (localStorage.getItem(KEY) === today) {
         tab.style.display = 'none';
         return;
       }
       localStorage.setItem(KEY, today);
 
-      // Elements
-      const o1Overlay = document.getElementById('offer1Overlay');
-      const o1Close = document.getElementById('offer1Close');
-      const o2Overlay = document.getElementById('offer2Overlay');
-      const o2Close = document.getElementById('offer2Close');
+      const o1 = document.getElementById('offer1Overlay');
+      const o2 = document.getElementById('offer2Overlay');
+      const close1 = document.getElementById('offer1Close');
+      const close2 = document.getElementById('offer2Close');
       const countdownEl = document.getElementById('offer2Countdown');
-      let countdownInt;
+      let timerInt;
 
-      // Click tab → first modal
+      // click tab → show first modal
       tab.addEventListener('click', () => {
         tab.style.display = 'none';
-        o1Overlay.style.display = 'flex';
+        o1.style.display = 'flex';
       });
 
-      // Close first → open second
-      o1Close.addEventListener('click', () => {
-        o1Overlay.style.display = 'none';
-        o2Overlay.style.display = 'flex';
+      // close first → show second + start countdown
+      close1.addEventListener('click', () => {
+        o1.style.display = 'none';
+        o2.style.display = 'flex';
         const end = Date.now() + 30 * 60 * 1000;
-        updateTimer();
-        countdownInt = setInterval(updateTimer, 1000);
+        update();
+        timerInt = setInterval(update, 1000);
 
-        function updateTimer() {
+        function update() {
           const diff = Math.max(0, end - Date.now());
           const m = String(Math.floor(diff / 60000)).padStart(2, '0');
           const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
           countdownEl.textContent = `${m}:${s}`;
-          if (diff <= 0) clearInterval(countdownInt);
+          if (diff <= 0) clearInterval(timerInt);
         }
       });
 
-      // Close second
-      o2Close.addEventListener('click', () => {
-        o2Overlay.style.display = 'none';
-        clearInterval(countdownInt);
+      // close second → clear timer
+      close2.addEventListener('click', () => {
+        o2.style.display = 'none';
+        clearInterval(timerInt);
       });
     });
   </script>
 </section>
 <!-- END: Global Impact + Benefits + Embedded Sidebar Offer -->
+
 
 <!-- START: Niche Diversity Block -->
 <section style="width: 100%; padding: 1.5em 1.5em 3em; text-align: center;">

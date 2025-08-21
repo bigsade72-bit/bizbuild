@@ -909,8 +909,8 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- END: Section Divider -->
 
 <!-- ✅ START: Special Offer Section -->
-<section id="specialOfferSection" style="text-align:center; padding:80px 20px; background:#f5f5f5; font-family:sans-serif;">
-  <div id="giftBox" style="display:inline-block; position:relative; width:120px; height:120px; background:#00897b; border-radius:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+<section id="specialOfferSection" style="text-align:center; padding:60px 20px; background:#f5f5f5; font-family:'Segoe UI', sans-serif;">
+  <div id="giftBox" style="display:inline-block; position:relative; width:120px; height:120px; background:#00897b; border-radius:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2); margin:auto;">
     <span style="font-size:2.5em; color:#fff; line-height:120px;">🎁</span>
     <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%) rotate(-10deg); background:#d32f2f; color:#fff; padding:6px 12px; font-size:0.85em; border-radius:4px; font-weight:bold;">
       Special Offer (Click Here)
@@ -919,27 +919,90 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </section>
 
 <!-- ✅ START: First Popup -->
-<div id="popup1" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:#fff; padding:30px; border-radius:10px; max-width:400px; width:90%; position:relative; text-align:center;">
-    <span onclick="closePopup1()" style="position:absolute; top:12px; right:16px; font-size:1.5em; cursor:pointer;">&times;</span>
-    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" style="width:100%; border-radius:8px; margin-bottom:20px;">
-    <h2 style="margin:0 0 10px;">Complete 7-Day Launch Kit</h2>
-    <p style="font-size:1.2em; margin:10px 0;">Now only <strong style="font-size:2em; color:#e53935;">$44</strong></p>
-    <a href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank" style="display:block; background:#e53935; color:#fff; padding:12px; border-radius:6px; text-decoration:none; font-weight:bold;">Pay $44</a>
+<div id="popup1" class="popupOverlay">
+  <div class="popupContent">
+    <span class="popupClose" onclick="closePopup1()">×</span>
+    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" class="popupImage">
+    <h2>Complete 7-Day Launch Kit</h2>
+    <p>Now only <strong class="priceRed">$44</strong></p>
+    <a href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank" class="popupButton">Pay $44</a>
   </div>
 </div>
 
 <!-- ✅ START: Second Popup -->
-<div id="popup2" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:#fff176; padding:30px; border-radius:10px; max-width:400px; width:90%; position:relative; text-align:center; border:2px solid #fbc02d;">
-    <span onclick="closePopup2()" style="position:absolute; top:12px; right:16px; font-size:1.5em; cursor:pointer;">&times;</span>
-    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" style="width:100%; border-radius:8px; margin-bottom:20px;">
-    <h2 style="margin:0 0 10px;">⚡ Final Offer – 30 Minutes Only ⚡</h2>
-    <p style="font-size:1.2em; margin:10px 0;">Now only <strong style="font-size:2em; color:#d84315;">$27</strong></p>
-    <a href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank" style="display:block; background:#d84315; color:#fff; padding:12px; border-radius:6px; text-decoration:none; font-weight:bold;">Pay $27</a>
-    <p style="margin-top:12px; font-size:0.9em; color:#555;">This offer disappears in <span id="countdown">30:00</span></p>
+<div id="popup2" class="popupOverlay">
+  <div class="popupContent" style="background:#fff176; border:2px solid #fbc02d;">
+    <span class="popupClose" onclick="closePopup2()">×</span>
+    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" class="popupImage">
+    <h2 style="color:#d84315;">⚡ Final Offer – 30 Minutes Only ⚡</h2>
+    <p>Now only <strong class="priceOrange">$27</strong></p>
+    <a href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank" class="popupButton" style="background:#d84315;">Pay $27</a>
+    <p style="margin-top:12px; font-size:0.9em; color:#444;">This offer disappears in <span id="countdown">30:00</span></p>
   </div>
 </div>
+
+<!-- ✅ START: Styles -->
+<style>
+  .popupOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .popupContent {
+    background: #fff;
+    padding: 24px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+  .popupClose {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #333;
+  }
+  .popupImage {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  .popupButton {
+    display: block;
+    background: #e53935;
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .priceRed {
+    font-size: 2em;
+    color: #e53935;
+  }
+  .priceOrange {
+    font-size: 2em;
+    color: #d84315;
+  }
+  @media (max-width: 480px) {
+    .popupContent {
+      padding: 16px;
+    }
+    .popupButton {
+      font-size: 1em;
+    }
+  }
+</style>
 
 <!-- ✅ START: Script Logic -->
 <script>
@@ -973,6 +1036,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         seconds--;
       } else {
         clearInterval(timer);
+        popup2.style.display = 'none';
       }
     }
     update();

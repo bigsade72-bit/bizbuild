@@ -897,17 +897,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- End VIP Level 3 Block --> 
 <!-- Completetly End What We Offer Section -->
 
-<!-- START: Section Divider -->
-<hr
-  style="
-    border: 0;
-    height: 1px;
-    background-color: #fff;
-    margin: 2em 0;
-  "
-/>
-<!-- END: Section Divider -->
-
 <!-- START: Special Offer Section & Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1048,11 +1037,13 @@ document.addEventListener('DOMContentLoaded', function() {
     return ov;
   }
 
-  // 5) Two modals
+  // 5) Two modals with your specified image
+  var imgURL = 'https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg';
+
   var overlay1 = makeOverlay('soOverlay1', `
     <div class="so-modal">
       <span class="so-close" id="soClose1">&times;</span>
-      <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Complete Business Launch Kit">
+      <img src="${imgURL}" alt="Complete Business Launch Kit">
       <h2>Complete 7-Day Launch Kit</h2>
       <div class="so-pricing">
         <span class="old-price">$1298</span>
@@ -1065,7 +1056,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var overlay2 = makeOverlay('soOverlay2', `
     <div class="so-modal">
       <span class="so-close" id="soClose2">&times;</span>
-      <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Complete Business Launch Kit">
+      <img src="${imgURL}" alt="Complete Business Launch Kit">
       <h2>Special 30-Minute Offer</h2>
       <div id="soCountdown">30:00</div>
       <div class="so-pricing">
@@ -1076,7 +1067,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   `);
 
-  // 6) Open/close logic + one-time 2nd offer + countdown
+  // 6) Open/close logic + one-time second offer + countdown
   var shownSecond = sessionStorage.getItem('so2shown');
   var gift    = document.getElementById('soGift');
   var close1  = document.getElementById('soClose1');
@@ -1118,6 +1109,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <!-- END: Special Offer Section & Script -->
 
+
+<!-- START: Section Divider -->
+<hr
+  style="
+    border: 0;
+    height: 1px;
+    background-color: #fff;
+    margin: 2em 0;
+  "
+/>
+<!-- END: Section Divider -->
 
 <!-- START: Global Impact + Benefits Block -->
 <section style="width: 100%; padding: 3em 1.5em 1.5em; text-align: center;">

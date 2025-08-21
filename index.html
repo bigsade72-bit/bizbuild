@@ -897,6 +897,220 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 <!-- End VIP Level 3 Block --> 
 <!-- Completetly End What We Offer Section -->
 
+<!-- BEGIN: Self-Contained Special Offer + Double Popup Script -->
+<script>
+window.addEventListener('load', function() {
+  // 1) Inject CSS
+  const css = `
+    /* Section & Gift */
+    #soOfferSection {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    #soGift {
+      display: inline-block;
+      position: relative;
+      width: 120px;
+      height: 120px;
+      background: #00897b;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    #soGift span {
+      display: block;
+      font-size: 2.5em;
+      color: #fff;
+      line-height: 120px;
+    }
+    #soGift .soRibbon {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-10deg);
+      background: #d32f2f;
+      color: #fff;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      border-radius: 4px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    /* Overlay */
+    .soOverlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Popup base */
+    .soPopup {
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    .soPopup img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .soPopup h2 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+    }
+    .soPopup p {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+    .soPopup .price {
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .soPopup .soClose {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #333;
+    }
+    .soPopup a {
+      display: block;
+      background: #e53935;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Second popup variant */
+    .soPopup.yellow {
+      background: #fff176;
+      border: 2px solid #fbc02d;
+    }
+    .soPopup.yellow h2 {
+      color: #d84315;
+    }
+    .soPopup.yellow a {
+      background: #d84315;
+    }
+    .soPopup .countdown {
+      margin-top: 12px;
+      font-size: 1em;
+      color: #444;
+    }
+
+    @media (max-width: 480px) {
+      .soPopup { padding: 16px; }
+      .soPopup a { font-size: 1em; }
+    }
+  `;
+  const styleTag = document.createElement('style');
+  styleTag.innerHTML = css;
+  document.head.appendChild(styleTag);
+
+  // 2) Build Section + Gift
+  const section = document.createElement('section');
+  section.id = 'soOfferSection';
+  section.innerHTML = `
+    <div id="soGift">
+      <span>🎁</span>
+      <div class="soRibbon">Special Offer (Click Here)</div>
+    </div>
+  `;
+  document.body.insertBefore(section, document.body.firstChild);
+
+  // 3) Build Popups
+  const imgURL = 'https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg';
+
+  const popup1 = document.createElement('div');
+  popup1.id = 'soPopup1';
+  popup1.className = 'soOverlay';
+  popup1.innerHTML = `
+    <div class="soPopup">
+      <span class="soClose" data-close="1">&times;</span>
+      <img src="${imgURL}" alt="Complete 7-Day Launch Kit">
+      <h2>Complete 7-Day Launch Kit</h2>
+      <p>Now only <span class="price">$44</span></p>
+      <a href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank">Pay $44</a>
+    </div>
+  `;
+  document.body.appendChild(popup1);
+
+  const popup2 = document.createElement('div');
+  popup2.id = 'soPopup2';
+  popup2.className = 'soOverlay';
+  popup2.innerHTML = `
+    <div class="soPopup yellow">
+      <span class="soClose" data-close="2">&times;</span>
+      <img src="${imgURL}" alt="Complete 7-Day Launch Kit">
+      <h2>⚡ Final Offer – 30 Minutes Only ⚡</h2>
+      <p>Now only <span class="price">$27</span></p>
+      <a href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank">Pay $27</a>
+      <p class="countdown">This offer disappears in <span id="soCountdown">30:00</span></p>
+    </div>
+  `;
+  document.body.appendChild(popup2);
+
+  // 4) Logic: open/close + countdown
+  const gift = document.getElementById('soGift');
+  const closeButtons = document.querySelectorAll('.soClose');
+  const countdownEl = document.getElementById('soCountdown');
+  let countdownTimer, remaining = 30 * 60;
+
+  gift.addEventListener('click', () => {
+    popup1.style.display = 'flex';
+  });
+
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const variant = btn.getAttribute('data-close');
+      if (variant === '1') {
+        popup1.style.display = 'none';
+        popup2.style.display = 'flex';
+        startCountdown();
+      } else {
+        popup2.style.display = 'none';
+        clearInterval(countdownTimer);
+      }
+    });
+  });
+
+  function startCountdown() {
+    function tick() {
+      const m = String(Math.floor(remaining / 60)).padStart(2, '0');
+      const s = String(remaining % 60).padStart(2, '0');
+      countdownEl.textContent = `${m}:${s}`;
+      if (remaining > 0) {
+        remaining--;
+      } else {
+        clearInterval(countdownTimer);
+        popup2.style.display = 'none';
+      }
+    }
+    tick();
+    countdownTimer = setInterval(tick, 1000);
+  }
+});
+</script>
+<!-- END: Self-Contained Special Offer + Double Popup Script -->
+
+
 <!-- START: Section Divider -->
 <hr
   style="
@@ -907,143 +1121,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
   "
 />
 <!-- END: Section Divider -->
-
-<!-- ✅ START: Special Offer Section -->
-<section id="specialOfferSection" style="text-align:center; padding:60px 20px; background:#f5f5f5; font-family:'Segoe UI', sans-serif;">
-  <div id="giftBox" style="display:inline-block; position:relative; width:120px; height:120px; background:#00897b; border-radius:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2); margin:auto;">
-    <span style="font-size:2.5em; color:#fff; line-height:120px;">🎁</span>
-    <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%) rotate(-10deg); background:#d32f2f; color:#fff; padding:6px 12px; font-size:0.85em; border-radius:4px; font-weight:bold;">
-      Special Offer (Click Here)
-    </div>
-  </div>
-</section>
-
-<!-- ✅ START: First Popup -->
-<div id="popup1" class="popupOverlay">
-  <div class="popupContent">
-    <span class="popupClose" onclick="closePopup1()">×</span>
-    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" class="popupImage">
-    <h2>Complete 7-Day Launch Kit</h2>
-    <p>Now only <strong class="priceRed">$44</strong></p>
-    <a href="https://buy.stripe.com/00wdR8drPdqscGjcfZ33W42" target="_blank" class="popupButton">Pay $44</a>
-  </div>
-</div>
-
-<!-- ✅ START: Second Popup -->
-<div id="popup2" class="popupOverlay">
-  <div class="popupContent" style="background:#fff176; border:2px solid #fbc02d;">
-    <span class="popupClose" onclick="closePopup2()">×</span>
-    <img src="https://i.postimg.cc/nrtcFnrM/Complete-Biz-Launch-Kit.jpg" alt="Product" class="popupImage">
-    <h2 style="color:#d84315;">⚡ Final Offer – 30 Minutes Only ⚡</h2>
-    <p>Now only <strong class="priceOrange">$27</strong></p>
-    <a href="https://buy.stripe.com/6oUeVccnL1HK49Ngwf33W40" target="_blank" class="popupButton" style="background:#d84315;">Pay $27</a>
-    <p style="margin-top:12px; font-size:0.9em; color:#444;">This offer disappears in <span id="countdown">30:00</span></p>
-  </div>
-</div>
-
-<!-- ✅ START: Styles -->
-<style>
-  .popupOverlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  .popupContent {
-    background: #fff;
-    padding: 24px;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 100%;
-    position: relative;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  }
-  .popupClose {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #333;
-  }
-  .popupImage {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 16px;
-  }
-  .popupButton {
-    display: block;
-    background: #e53935;
-    color: #fff;
-    padding: 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  .priceRed {
-    font-size: 2em;
-    color: #e53935;
-  }
-  .priceOrange {
-    font-size: 2em;
-    color: #d84315;
-  }
-  @media (max-width: 480px) {
-    .popupContent {
-      padding: 16px;
-    }
-    .popupButton {
-      font-size: 1em;
-    }
-  }
-</style>
-
-<!-- ✅ START: Script Logic -->
-<script>
-  const giftBox = document.getElementById('giftBox');
-  const popup1 = document.getElementById('popup1');
-  const popup2 = document.getElementById('popup2');
-  const countdown = document.getElementById('countdown');
-  let timer;
-
-  giftBox.addEventListener('click', () => {
-    popup1.style.display = 'flex';
-  });
-
-  function closePopup1() {
-    popup1.style.display = 'none';
-    popup2.style.display = 'flex';
-    startCountdown(30 * 60);
-  }
-
-  function closePopup2() {
-    popup2.style.display = 'none';
-    clearInterval(timer);
-  }
-
-  function startCountdown(seconds) {
-    function update() {
-      const min = String(Math.floor(seconds / 60)).padStart(2, '0');
-      const sec = String(seconds % 60).padStart(2, '0');
-      countdown.textContent = `${min}:${sec}`;
-      if (seconds > 0) {
-        seconds--;
-      } else {
-        clearInterval(timer);
-        popup2.style.display = 'none';
-      }
-    }
-    update();
-    timer = setInterval(update, 1000);
-  }
-</script>
-<!-- ✅ END: Special Offer Section -->
 
 
 <!-- START: Global Impact + Benefits Block -->

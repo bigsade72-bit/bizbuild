@@ -609,26 +609,26 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </section>
 <!-- Begin Script🟢: Conversion Rebuild & Launch Suite -->
 <style>
-  /* Desktop: enlarge card, shrink list-item text, unify/enlarge buttons */
+  /* Desktop: enlarge card, shrink list items, unify/enlarge Pay Now buttons */
   @media (min-width: 768px) {
     .product-card {
       max-width: 800px !important;
-      width: 75% !important;
-      padding: 30px !important;
-      margin: 40px auto !important;
+      width: 75%      !important;
+      padding: 30px   !important;
+      margin: 40px auto!important;
     }
     .product-card h2 {
       font-size: 2em !important;
       margin: 20px 0 10px !important;
     }
     .product-card .details-content ul li {
-      font-size: 0.85em !important;
-      margin-bottom: 0.6em !important;
+      font-size: 0.85em!important;
+      margin-bottom:0.6em!important;
     }
     .product-card a.pay-btn {
-      padding: 12px 28px !important;
-      font-size: 1.1em !important;
-      min-width: 220px !important;
+      padding: 12px 28px!important;
+      font-size: 1.1em!important;
+      min-width: 220px!important;
     }
   }
 
@@ -641,6 +641,16 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     text-decoration: none;
     font-weight: bold;
     text-align: center;
+  }
+
+  /* Mobile: ensure buttons fill available space equally */
+  @media (max-width: 600px) {
+    .product-card a.pay-btn {
+      width: 100% !important;
+      max-width: 280px;
+      padding: 12px 0 !important;
+      margin: 0 auto !important;
+    }
   }
 </style>
 
@@ -698,7 +708,9 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
   <!-- Price -->
   <div class="pricing"
        style="text-align:center; font-size:1.2em; margin:12px 0;">
-    <span style="color:#ff4444; font-weight:bold;">$498</span>
+    <span style="color:#ff4444; font-weight:bold; display:inline-block;">
+      $498
+    </span>
   </div>
 
   <!-- Pay Button -->

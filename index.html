@@ -746,7 +746,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </script>
 <!-- End Script🔴: Conversion Rebuild & Launch Suite -->
 
-
 <!-- Level 3 intro to VIP block -->
 <section style="background:#222; color:#fff; text-align:center; padding:1em 0; margin:0;">
   <h3 style="margin:0; font-size:1.5em; font-weight:700;">
@@ -769,17 +768,21 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     VIP Conversion Command Package
   </h3>
 
-  <p>
-    Complete hands-off setup. A one-time launch package for serious founders. Includes a custom landing page, up to 5 ad creatives, and a live strategy session. Ideal for product launches, service providers, and anyone ready to scale with clarity. No monthly commitment required. Monthly management is available for additional.
+  <p style="color:#fff;">
+    Complete hands-off setup for serious founders. Includes everything in Level 2. Ideal for product launches, service providers, real estate agents, technology companies, corporate entities, and anyone ready to scale with clarity.
   </p>
 
   <p style="margin-top:0.8em; font-weight:bold; color:#ff4444;">
-    Starting price: <span style="text-decoration:line-through; color:#ff4444;">$5,000</span> $3,500.
+    $650 to start. Then invoiced every 30 days: $1500 retainer + 7% performance commission.
+  </p>
+
+  <p style="margin-top:0.8em; font-weight:bold; color:#ff4444; font-size:1.2em;">
+    Total Package: $6500
   </p>
 
   <a
-    href="#"
-    id="adsLauncher"
+    href="https://buy.stripe.com/3cI8wO0F31HK6hV2Fp33X0f"
+    target="_blank"
     style="
       display:inline-block;
       margin-top:1em;
@@ -792,190 +795,10 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       text-decoration:none;
     "
   >
-    Join Us Live (Free)
+    Pay Now
   </a>
 </div>
-<!--Join now Ads Intake Wizard + Calendly Launcher -->
-
-<!-- Fullscreen Form Wizard -->
-<div
-  id="adsWizard"
-  style="
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    background:#ffffff;
-    font-family:sans-serif;
-    z-index:1000;
-    overflow-y:auto;            /* outer scroll only */
-    -webkit-overflow-scrolling:touch;
-  "
->
-  <div style="text-align:right;padding:20px;">
-    <button
-      id="adsCloseBtn"
-      onclick="document.getElementById('adsWizard').style.display='none'"
-      style="font-size:20px;background:none;border:none;cursor:pointer;"
-    >&times;</button>
-  </div>
-
-  <div
-    id="progressBar"
-    style="height:10px;background:#e0e0e0;border-radius:5px;margin:0 20px 20px;"
-  >
-    <div
-      id="progressFill"
-      style="height:100%;width:0%;background:#009688;border-radius:5px;"
-    ></div>
-  </div>
-
-  <div id="adsStepContent" style="color:#000;"></div>
-</div>
-
-<script>
-  let adsData = { interest: "", budget: "", years: "", site: "", timeline: "" };
-  let adsStep = 0;
-
-  document.getElementById("adsLauncher").addEventListener("click", () => {
-    adsStep = 0;
-    renderAdsStep();
-    document.getElementById("adsWizard").style.display = "block";
-  });
-
-  function updateProgress(pct) {
-    document.getElementById("progressFill").style.width = pct + "%";
-  }
-
-  function renderAdsStep() {
-    const container = document.getElementById("adsStepContent");
-
-    if (adsStep === 0) {
-      updateProgress(10);
-      container.innerHTML = `
-        <h2 style="padding:0 20px;">🚀 What are you most interested in?</h2>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;padding:20px;">
-          ${["Starter: Ads Course","Growth: Done-With-You Setup","VIP: Done-For-You Launch Package"]
-            .map(opt => 
-              `<button
-                 onclick="adsData.interest='${opt}'; adsStep=1; renderAdsStep()"
-                 style="background:#009688;color:#fff;padding:10px 20px;border:none;">
-                 ${opt}
-               </button>`)
-            .join("")}
-        </div>`;
-    }
-    else if (adsStep === 1) {
-      updateProgress(30);
-      container.innerHTML = `
-        <h2 style="padding:0 20px;">💰 What’s your current budget?</h2>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;padding:20px;">
-          ${["Under $500","$500–$1,500","$1,500–$5,000","$5,000–$20,000","$20,000+"]
-            .map(b => 
-              `<button
-                 onclick="adsData.budget='${b}'; adsStep=2; renderAdsStep()"
-                 style="background:#009688;color:#fff;padding:10px 20px;border:none;">
-                 ${b}
-               </button>`)
-            .join("")}
-        </div>`;
-    }
-    else if (adsStep === 2) {
-      updateProgress(50);
-      container.innerHTML = `
-        <h2 style="padding:0 20px;">📊 How long have you been in business?</h2>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;padding:20px;">
-          ${["0–6 months","6 months – 2 years","2–5 years","5+ years"]
-            .map(y =>
-              `<button
-                 onclick="adsData.years='${y}'; adsStep=3; renderAdsStep()"
-                 style="background:#009688;color:#fff;padding:10px 20px;border:none;">
-                 ${y}
-               </button>`)
-            .join("")}
-        </div>`;
-    }
-    else if (adsStep === 3) {
-      updateProgress(70);
-      container.innerHTML = `
-        <h2 style="padding:0 20px;">Free Diagnostic: What’s your website or social media page?</h2>
-        <p style="padding:0 20px;">
-          We’ll analyze your page/site free of charge and return feedback during the live session.
-        </p>
-        <textarea
-          id="adsSiteInput"
-          placeholder="Type details here..."
-          style="width:90%;margin:20px;padding:10px;height:100px;font-size:14px;"
-        ></textarea>
-        <button
-          onclick="adsData.site=document.getElementById('adsSiteInput').value; adsStep=4; renderAdsStep()"
-          style="margin:0 20px 20px;background:#009688;color:#fff;padding:10px 20px;border:none;"
-        >Continue</button>`;
-    }
-    else if (adsStep === 4) {
-      updateProgress(90);
-      container.innerHTML = `
-        <h2 style="padding:0 20px;">⏱️ When are you hoping to launch or improve your ads?</h2>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;padding:20px;">
-          ${["Within 7 days","This month","Just exploring"]
-            .map(t => 
-              `<button
-                 onclick="adsData.timeline='${t}'; adsStep=5; renderAdsStep()"
-                 style="background:#009688;color:#fff;padding:10px 20px;border:none;">
-                 ${t}
-               </button>`)
-            .join("")}
-        </div>`;
-    }
-    else if (adsStep === 5) {
-      updateProgress(100);
-      container.innerHTML = `
-        <h2 style="padding:0 20px;">🎥 Join Us Live!</h2>
-        <p style="padding:0 20px;font-size:1.1em;">
-          There’s a reason our client retention is strong.
-        </p>
-        <div
-          id="calendlyFrame"
-          style="
-            width:100%;
-            height:calc(100vh - 120px);
-            /* no overflow here—outer wizard will scroll if needed */
-          "
-        ></div>`;
-
-      const calendlyScript = document.createElement("script");
-      calendlyScript.src = "https://assets.calendly.com/assets/external/widget.js";
-      calendlyScript.async = true;
-      calendlyScript.onload = () => {
-        Calendly.initInlineWidget({
-          url:
-            "https://calendly.com/stemsphere-support/live-ads-page-diagnostics-with-stemsphere-academy",
-          parentElement: document.getElementById("calendlyFrame"),
-          prefill: {
-            customAnswers: {
-              a1: adsData.interest,
-              a2: adsData.budget,
-              a3: adsData.years,
-              a4: adsData.site,
-              a5: adsData.timeline
-            }
-          }
-        });
-      };
-      document.body.appendChild(calendlyScript);
-
-      window.addEventListener("message", (e) => {
-        if (e.data.event && e.data.event.includes("calendly")) {
-          document.getElementById("adsCloseBtn").style.display = "inline";
-        }
-      });
-    }
-  }
-</script>
-<!-- ✅ END: Ads Intake Wizard -->
-<!-- End VIP Level 3 Block --> 
+<!-- End VIP Level 3 Block -->
 <!-- Completetly End What We Offer Section -->
 
 
@@ -990,226 +813,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 />
 <!-- END: Section Divider -->
  
-
-<!-- START: Special Offer Section -->
-<section id="special-offer-section"
-         style="background: #FFEB3B; border-radius: 12px; padding: 40px 20px;
-                text-align: center; margin: 2em auto; max-width: 400px;
-                position: relative; z-index: 1000;">
-  <button id="special-offer-btn" class="gift-box"
-          style="background: #d32f2f; color: #fff; border: none;
-                 padding: 12px 24px; font-size: 1.1rem; border-radius: 4px;
-                 cursor: pointer; position: relative; z-index: 1001;">
-    🎁 Special Offer
-  </button>
-</section>
-<!-- END: Special Offer Section -->
-
-<!-- START: Modal Templates -->
-<!-- Modal 1: $88 Offer -->
-<div id="special-modal-1" class="special-modal"
-     style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
-            justify-content:center; align-items:center; z-index:9999;">
-  <div class="special-modal-content"
-       style="background:#fff; padding:24px; width:90vw; max-width:400px;
-              border-radius:8px; text-align:center; position:relative;
-              box-shadow:0 8px 24px rgba(0,0,0,0.2);">
-    <button class="special-close" data-target="1"
-            style="position:absolute; top:12px; right:12px;
-                   background:transparent; border:none;
-                   font-size:1.4rem; cursor:pointer; color:#666;">
-      &times;
-    </button>
-    <img src="https://i.postimg.cc/C1QnSTDP/In-Shot-20250822-005314753.jpg"
-         alt="Conversion Tuneup" style="width:100%; border-radius:4px; margin-bottom:16px;" />
-    <h3 style="margin-bottom:8px; color:#333;">Not Sure What’s Broken?</h3>
-    <p style="font-size:1em; color:#444; margin-bottom:12px;">
-      Try our <strong>Conversion Tuneup Premium</strong> and get clarity fast.
-    </p>
-    <h2 style="margin:12px 0; line-height:1.2;">
-      <span class="x-strike">$98</span>
-      <span style="font-size:2.4em; font-weight:bold; color:#ff4444;">$88</span>
-    </h2>
-    <a href="https://buy.stripe.com/9B68wO9bzcmo6hVcfZ33X0b"
-       class="special-buy" target="_blank" rel="noopener"
-       style="display:inline-block; margin-top:8px; padding:12px 24px;
-              background:#d32f2f; color:#fff; text-decoration:none;
-              border-radius:4px;">
-      Buy Now for $88
-    </a>
-  </div>
-</div>
-
-<!-- Modal 2: $74 Offer -->
-<div id="special-modal-2" class="special-modal"
-     style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
-            justify-content:center; align-items:center; z-index:9999;">
-  <div class="special-modal-content"
-       style="background:#BBDEFB; padding:20px; width:90vw; max-width:380px;
-              border-radius:8px; text-align:center; position:relative;
-              box-shadow:0 8px 24px rgba(0,0,0,0.2);">
-    <button class="special-close" data-target="2"
-            style="position:absolute; top:8px; right:8px;
-                   background:transparent; border:none;
-                   font-size:1.4rem; cursor:pointer; color:#666;">
-      &times;
-    </button>
-    <img src="https://i.postimg.cc/C1QnSTDP/In-Shot-20250822-005314753.jpg"
-         alt="Conversion Tuneup" style="width:100%; border-radius:4px; margin-bottom:12px;" />
-    <p style="font-size:1em; color:#333; margin:8px 0;">
-      Fine, here’s a better discount just for you.
-    </p>
-    <h2 style="margin:4px 0 12px; line-height:1.2;">
-      <span class="x-strike">$98</span>
-      <span style="font-size:2.4em; font-weight:bold; color:#ff4444;">$74</span>
-    </h2>
-    <a href="https://buy.stripe.com/eVq3cu87v4TW5dR93N33X0c"
-       class="special-buy" target="_blank" rel="noopener"
-       style="display:inline-block; margin-top:8px; padding:12px 24px;
-              background:#d32f2f; color:#fff; text-decoration:none;
-              border-radius:4px;">
-      Buy Now for $74
-    </a>
-  </div>
-</div>
-
-<!-- Modal 3: Final $47 Offer -->
-<div id="special-modal-3" class="special-modal"
-     style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6);
-            justify-content:center; align-items:center; z-index:9999;">
-  <div class="special-modal-content final"
-       style="background:#FFEB3B; padding:12px 16px; width:90vw; max-width:360px;
-              border-radius:8px; text-align:center; position:relative;
-              box-shadow:0 8px 24px rgba(0,0,0,0.2);">
-    <button class="special-close" data-target="3"
-            style="position:absolute; top:8px; right:8px;
-                   background:transparent; border:none;
-                   font-size:1.4rem; cursor:pointer; color:#666;">
-      &times;
-    </button>
-    <img src="https://i.postimg.cc/C1QnSTDP/In-Shot-20250822-005314753.jpg"
-         alt="Conversion Tuneup" style="width:100%; border-radius:4px; margin-bottom:8px;" />
-    <p style="font-size:1em; color:#333; margin:4px 0;">
-      OK, you’re making us work! Here’s our final offer.
-    </p>
-    <p id="countdown-timer"
-       style="font-size:1.2rem; font-weight:bold; color:#333; margin:4px 0;">
-      07:00
-    </p>
-    <h2 style="margin:4px 0 8px; font-size:2.2em; font-weight:bold; color:#d32f2f;">
-      Final Offer: $47
-    </h2>
-    <a href="https://buy.stripe.com/3cI6oG0F34TW35Jeo733X0d"
-       class="special-buy" target="_blank" rel="noopener"
-       style="display:inline-block; margin-top:4px; padding:10px 20px;
-              background:#d32f2f; color:#fff; text-decoration:none;
-              border-radius:4px; transition:opacity 0.3s;">
-      Buy Now for $47
-    </a>
-    <p style="font-size:0.85em; color:#555; margin:6px 0;">
-      <strong>For new customers only</strong>
-    </p>
-  </div>
-</div>
-<!-- END: Modal Templates -->
-
-<!-- START: Special Offer Styles -->
-<style>
-  body { overflow-x: hidden; }
-  .special-modal { display: none; display: flex; justify-content: center; align-items: center; }
-  .x-strike { position: relative; display: inline-block; margin: 0 0.3em; color: #888; }
-  .x-strike::before, .x-strike::after {
-    content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: #888;
-  }
-  .x-strike::before { transform: rotate(45deg); }
-  .x-strike::after  { transform: rotate(-45deg); }
-</style>
-<!-- END: Special Offer Styles -->
-
-<!-- START: Special Offer Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const section = document.getElementById('special-offer-section');
-    const btn     = document.getElementById('special-offer-btn');
-    const modals  = [
-      document.getElementById('special-modal-1'),
-      document.getElementById('special-modal-2'),
-      document.getElementById('special-modal-3')
-    ];
-    const closes  = document.querySelectorAll('.special-close');
-    const DURATION       = 7 * 60;              // 7 minutes
-    const BLOCK_DURATION = 24 * 60 * 60 * 1000; // 24 hours
-    let countdownInterval;
-
-    function disableFinalBuy() {
-      const buyBtn = modals[2].querySelector('.special-buy');
-      buyBtn.style.pointerEvents = 'none';
-      buyBtn.style.opacity       = '0.5';
-    }
-
-    // 1) On load: if offer blocked, disable only final-buy
-    const blockedUntil = +localStorage.getItem('specialOfferBlockedUntil');
-    if (blockedUntil && Date.now() < blockedUntil) {
-      disableFinalBuy();
-    } else {
-      localStorage.removeItem('specialOfferStart');
-      localStorage.removeItem('specialOfferBlockedUntil');
-    }
-
-    // 2) Open first modal
-    btn.addEventListener('click', () => modals[0].style.display = 'flex');
-
-    // 3) Close flows: 1→2, 2→3, 3 just hides
-    closes.forEach(el => {
-      el.addEventListener('click', e => {
-        const parent = e.target.closest('.special-modal');
-        parent.style.display = 'none';
-        if (parent.id === 'special-modal-1') {
-          modals[1].style.display = 'flex';
-        } else if (parent.id === 'special-modal-2') {
-          modals[2].style.display = 'flex';
-          startOrResumeCountdown();
-        } else {
-          modals[2].style.display = 'none';
-        }
-      });
-    });
-
-    // 4) Countdown logic
-    function startOrResumeCountdown() {
-      clearInterval(countdownInterval);
-      let startTs = +localStorage.getItem('specialOfferStart');
-      if (!startTs) {
-        startTs = Date.now();
-        localStorage.setItem('specialOfferStart', startTs);
-      }
-      const timerEl = document.getElementById('countdown-timer');
-
-      function updateTimer() {
-        const elapsed   = Math.floor((Date.now() - startTs) / 1000);
-        const remaining = DURATION - elapsed;
-        if (remaining <= 0) {
-          clearInterval(countdownInterval);
-          timerEl.textContent = '00:00';
-          localStorage.setItem('specialOfferBlockedUntil', Date.now() + BLOCK_DURATION);
-          disableFinalBuy();
-          modals[2].style.display = 'none';
-          return;
-        }
-        const mins = Math.floor(remaining / 60);
-        const secs = remaining % 60;
-        timerEl.textContent = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
-      }
-
-      updateTimer();
-      countdownInterval = setInterval(updateTimer, 1000);
-    }
-  });
-</script>
-<!-- END: 🩰🔴🔵⚡Special Offer Script And Section Completely -->
-
-
-
 
 <!-- START: Global Impact + Benefits Block -->
 <section style="width: 100%; padding: 3em 1.5em 1.5em; text-align: center;">

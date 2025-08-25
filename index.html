@@ -126,7 +126,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     padding: 1em 1em 3em;
   }
    <style>
-   /* stable electric-frame glow */
+     /* stable electric-frame glow */
   .electric-frame {
     position: relative;
     padding: 10px;
@@ -190,12 +190,13 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
   }
-  #player {
+  iframe#player {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    border: 0;
     display: none;
     z-index: 0;
   }
@@ -340,7 +341,12 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         <div class="video-wrapper">
           <div class="placeholder-frame" id="placeholder"></div>
           <div class="play-button" id="playBtn"></div>
-          <div id="player"></div>
+          <iframe
+            id="player"
+            allow="autoplay; fullscreen; encrypted-media; picture-in-picture; playsinline"
+            allowfullscreen
+            src=""
+          ></iframe>
           <div class="click-overlay"></div>
         </div>
       </div>
@@ -356,6 +362,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         <input type="email" name="email" placeholder="Your Email" required />
         <button id="submitForm">Submit & Continue</button>
       </div>
+      <button id="signUpBtn" class="sign-up-btn">Sign Up Now</button>
     </div>
   </main>
   <div class="arrow-up">↑↑↑↑</div>
@@ -374,7 +381,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
-        host: 'https://www.youtube-nocookie.com',
         videoId: 'QiIo7OoF9QE',
         playerVars: {
           controls: 0,
@@ -383,7 +389,8 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
           rel: 0,
           iv_load_policy: 3,
           enablejsapi: 1,
-          autoplay: 0
+          autoplay: 0,
+          playsinline: 1
         },
         events: {
           onReady: onPlayerReady,
@@ -396,14 +403,13 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       const placeholder = document.getElementById('placeholder');
       const playBtn     = document.getElementById('playBtn');
       const clickOv     = document.querySelector('.click-overlay');
-      const playerDiv   = document.getElementById('player');
 
       clickOv.addEventListener('click', () => {
         if (!started) {
           started = true;
           placeholder.style.display = 'none';
-          playBtn.style.display = 'none';
-          playerDiv.style.display = 'block';
+          playBtn.style.display      = 'none';
+          document.getElementById('player').style.display = 'block';
           player.playVideo();
         } else if (player.getPlayerState() === YT.PlayerState.PLAYING) {
           player.pauseVideo();
@@ -419,11 +425,11 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 
       if (event.data === YT.PlayerState.PLAYING) {
         placeholder.style.display = 'none';
-        playBtn.style.display = 'none';
+        playBtn.style.display     = 'none';
         intervalId = setInterval(checkMilestones, 500);
       } else if (event.data === YT.PlayerState.PAUSED) {
         placeholder.style.display = 'block';
-        playBtn.style.display = 'flex';
+        playBtn.style.display     = 'flex';
         clearInterval(intervalId);
       }
     }
@@ -444,13 +450,14 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         document.getElementById('popup-form').style.display = 'none';
         player.playVideo();
         const formData = new FormData();
-        formData.append('name', document.querySelector('#popup-form input[name="name"]').value);
-        formData.append('email', document.querySelector('#popup-form input[name="email"]').value);
+        formData.append('name', document.querySelector('#popup-form input[name=\"name\"]').value);
+        formData.append('email', document.querySelector('#popup-form input[name=\"email\"]').value);
         fetch(
           'https://hooks.zapier.com/hooks/catch/24231572/utjjyyh/',
           { method: 'POST', body: formData, mode: 'no-cors' }
         );
       });
+
       document.getElementById('signUpBtn').addEventListener('click', () => {
         window.location.href = 'https://launch.bizbuild.academy/';
       });
@@ -459,24 +466,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </body>
 </html>
 
- 
-
-<!-- Spacer before Select Your Offer -->
-<div style="height: 1.5em;"></div>
-
-<!-- Select Your Offer Section -->
-<h2 id="what-we-offer"
-    style="
-      font-size: 1.8em;
-      font-weight: 700;
-      margin: 0 0 0.5em 0;            /* Only slight bottom margin */
-      background: linear-gradient(135deg, #ff4444, #b30000);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 6px rgba(255, 68, 68, 0.8);
-    ">
-  Select Your Offer
-</h2>
 
 <!-- Level 1  Conversion Tuneup block -->
 <section style="background:#222; color:#fff; text-align:center; padding:1em 0; margin:0;">

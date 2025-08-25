@@ -125,8 +125,8 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     margin: auto;
     padding: 1em 1em 3em;
   }
-   <style>
-     /* stable electric-frame glow */
+ <style>
+  /* stable electric-frame glow */
   .electric-frame {
     position: relative;
     padding: 10px;
@@ -137,6 +137,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     animation: none;
     max-width: 800px;
   }
+
   .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -144,35 +145,32 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     overflow: hidden;
     border-radius: 8px;
   }
+
   .video-wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: #000;
     border-radius: 8px;
     overflow: hidden;
   }
+
   .placeholder-frame {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://img.youtube.com/vi/QiIo7OoF9QE/maxresdefault.jpg');
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('https://img.youtube.com/vi/tzb27R0vjwU/maxresdefault.jpg');
     background-size: cover;
     background-position: center;
     cursor: pointer;
     z-index: 100;
   }
+
   .play-button {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
+    width: 80px; height: 80px;
     border-radius: 50%;
     background: rgba(255,255,255,0.85);
     box-shadow: 0 0 15px #ffeb3b;
@@ -181,41 +179,37 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     justify-content: center;
     z-index: 101;
   }
+
   .play-button::after {
     content: '';
     display: block;
-    width: 0;
-    height: 0;
+    width: 0; height: 0;
     border-left: 25px solid #000;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
   }
-  iframe#player {
+
+  #player {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     display: none;
     z-index: 0;
   }
+
   .click-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     z-index: 200;
     cursor: pointer;
   }
+
   #popup-form {
     display: none;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(0,0,0,0.85);
     border: 2px solid #ff4444;
     border-radius: 8px;
@@ -259,34 +253,27 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     margin-top: 0.3em;
   }
   #popup-form input {
-    width: 80%;
-    max-width: 300px;
-    padding: 0.8em;
-    margin: 0.4em 0;
-    border: none;
-    border-radius: 4px;
-    background: #222;
-    color: #fff;
+    width: 80%; max-width: 300px;
+    padding: 0.8em; margin: 0.4em 0;
+    border: none; border-radius: 4px;
+    background: #222; color: #fff;
     font-size: 1em;
   }
   #popup-form button {
     padding: 0.8em 1.2em;
     margin-top: 0.5em;
-    border: none;
-    border-radius: 4px;
+    border: none; border-radius: 4px;
     background: #ff4444;
     color: #fff;
-    font-weight: 700;
-    cursor: pointer;
+    font-weight: 700; cursor: pointer;
   }
+
   .sign-up-btn {
     display: none;
     position: absolute;
-    bottom: 15%;
-    left: 10%;
+    bottom: 15%; left: 10%;
     padding: 0.8em 1.2em;
-    border: none;
-    border-radius: 4px;
+    border: none; border-radius: 4px;
     background: #ff4444;
     color: #fff;
     font-weight: 700;
@@ -294,6 +281,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     cursor: pointer;
     z-index: 250;
   }
+
   .arrow-up {
     font-size: 2.2em;
     color: #FFA500;
@@ -301,13 +289,15 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     letter-spacing: 0.5em;
     margin: 0.3em 0 0;
   }
+
   .access-message {
-    font-size: 1em; /* smaller */
+    font-size: 1em;  /* smaller */
     font-weight: 700;
     color: #fff;
     font-family: 'Segoe UI Semibold', sans-serif;
     margin-top: 0.3em;
   }
+
   .stat-message {
     font-size: 1.05em;
     color: #ccc;
@@ -315,6 +305,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     padding: 0 1em;
     line-height: 1.5em;
   }
+
   footer {
     font-size: 0.85em;
     color: #bbb;
@@ -341,12 +332,7 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
         <div class="video-wrapper">
           <div class="placeholder-frame" id="placeholder"></div>
           <div class="play-button" id="playBtn"></div>
-          <iframe
-            id="player"
-            allow="autoplay; fullscreen; encrypted-media; picture-in-picture; playsinline"
-            allowfullscreen
-            src=""
-          ></iframe>
+          <div id="player"></div>
           <div class="click-overlay"></div>
         </div>
       </div>
@@ -364,107 +350,117 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
       </div>
       <button id="signUpBtn" class="sign-up-btn">Sign Up Now</button>
     </div>
-  </main>
-  <div class="arrow-up">↑↑↑↑</div>
-  <div class="access-message">Play ↻ in your regular browser</div>
-  <script src="https://ads.bizbuild.academy/loader.js" async></script>
-  <script>
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
+    <div class="arrow-up">↑↑↑↑</div>
+    <div class="access-message">Play ↻ in your regular browser</div>
+    
+<script src="https://ads.bizbuild.academy/loader.js" async></script>
+<script>
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(tag);
 
-    let player,
-        started = false,
-        signUpTime = 517, // 8:37
-        intervalId,
-        flags = { signUp: false };
+  let player,
+      started    = false,
+      pauseTime  = 240,  // 4:00
+      signUpTime = 517,  // 8:37
+      intervalId,
+      flags = { form: false, signUp: false };
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        videoId: 'QiIo7OoF9QE',
-        playerVars: {
-          controls: 0,
-          disablekb: 1,
-          modestbranding: 1,
-          rel: 0,
-          iv_load_policy: 3,
-          enablejsapi: 1,
-          autoplay: 0,
-          playsinline: 1
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange
-        }
-      });
-    }
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      host: 'https://www.youtube-nocookie.com',
+      videoId: 'KcRib2gRo2s',
+      playerVars: {
+        controls: 0,
+        disablekb: 1,
+        modestbranding: 1,
+        rel: 0,
+        iv_load_policy: 3,
+        enablejsapi: 1,
+        autoplay: 0
+      },
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange
+      }
+    });
+  }
 
-    function onPlayerReady() {
-      const placeholder = document.getElementById('placeholder');
-      const playBtn     = document.getElementById('playBtn');
-      const clickOv     = document.querySelector('.click-overlay');
+  function onPlayerReady() {
+    const placeholder = document.getElementById('placeholder');
+    const playBtn     = document.getElementById('playBtn');
+    const clickOv     = document.querySelector('.click-overlay');
+    const playerDiv   = document.getElementById('player');
 
-      clickOv.addEventListener('click', () => {
-        if (!started) {
-          started = true;
-          placeholder.style.display = 'none';
-          playBtn.style.display      = 'none';
-          document.getElementById('player').style.display = 'block';
-          player.playVideo();
-        } else if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-          player.pauseVideo();
-        } else {
-          player.playVideo();
-        }
-      });
-    }
-
-    function onPlayerStateChange(event) {
-      const placeholder = document.getElementById('placeholder');
-      const playBtn     = document.getElementById('playBtn');
-
-      if (event.data === YT.PlayerState.PLAYING) {
+    clickOv.addEventListener('click', () => {
+      if (!started) {
+        started = true;
         placeholder.style.display = 'none';
         playBtn.style.display     = 'none';
-        intervalId = setInterval(checkMilestones, 500);
-      } else if (event.data === YT.PlayerState.PAUSED) {
-        placeholder.style.display = 'block';
-        playBtn.style.display     = 'flex';
-        clearInterval(intervalId);
-      }
-    }
-
-    function checkMilestones() {
-      const t   = player.getCurrentTime();
-      const pct = (t / player.getDuration()) * 100;
-      document.querySelector('#popup-form .progress-bar').style.width = pct + '%';
-
-      if (!flags.signUp && t >= signUpTime) {
-        flags.signUp = true;
-        document.getElementById('signUpBtn').style.display = 'block';
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('submitForm').addEventListener('click', () => {
-        document.getElementById('popup-form').style.display = 'none';
+        playerDiv.style.display   = 'block';
         player.playVideo();
-        const formData = new FormData();
-        formData.append('name', document.querySelector('#popup-form input[name=\"name\"]').value);
-        formData.append('email', document.querySelector('#popup-form input[name=\"email\"]').value);
-        fetch(
-          'https://hooks.zapier.com/hooks/catch/24231572/utjjyyh/',
-          { method: 'POST', body: formData, mode: 'no-cors' }
-        );
-      });
-
-      document.getElementById('signUpBtn').addEventListener('click', () => {
-        window.location.href = 'https://launch.bizbuild.academy/';
-      });
+      } else if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
     });
-  </script>
+  }
+
+  function onPlayerStateChange(event) {
+    const placeholder = document.getElementById('placeholder');
+    const playBtn     = document.getElementById('playBtn');
+    if (event.data === YT.PlayerState.PLAYING) {
+      placeholder.style.display = 'none';
+      playBtn.style.display     = 'none';
+      intervalId = setInterval(checkMilestones, 500);
+    } else if (event.data === YT.PlayerState.PAUSED) {
+      placeholder.style.display = 'block';
+      playBtn.style.display     = 'flex';
+      clearInterval(intervalId);
+    }
+  }
+
+  function checkMilestones() {
+    const t   = player.getCurrentTime();
+    const pct = (t / player.getDuration()) * 100;
+    document.querySelector('#popup-form .progress-bar').style.width = pct + '%';
+
+    if (!flags.form && t >= pauseTime) {
+      flags.form = true;
+      clearInterval(intervalId);
+      player.pauseVideo();
+      document.getElementById('popup-form').style.display = 'flex';
+    }
+    if (!flags.signUp && t >= signUpTime) {
+      flags.signUp = true;
+      document.getElementById('signUpBtn').style.display = 'block';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('submitForm').addEventListener('click', () => {
+      document.getElementById('popup-form').style.display = 'none';
+      player.playVideo();
+
+      const formData = new FormData();
+      formData.append('name', document.querySelector('#popup-form input[name="name"]').value);
+      formData.append('email', document.querySelector('#popup-form input[name="email"]').value);
+
+      fetch(
+        'https://hooks.zapier.com/hooks/catch/24231572/utjjyyh/',
+        { method: 'POST', body: formData, mode: 'no-cors' }
+      );
+    });
+
+    document.getElementById('signUpBtn').addEventListener('click', () => {
+      window.location.href = 'https://launch.bizbuild.academy/';
+    });
+  });
+</script>
 </body>
 </html>
+  
 
 
 <!-- Level 1  Conversion Tuneup block -->

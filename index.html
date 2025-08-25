@@ -449,41 +449,25 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
 </section>
 <!-- Begin Script🟢: Conversion Tune-Up -->
 <style>
-  .product-card .pricing {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 12px 0;
-    font-size: 1.2em;
-    flex-wrap: nowrap;
-  }
-
-  .product-card .pricing span.plan-name {
-    font-size: 0.85em;
-    flex: 1 1 auto;
-    margin-right: 8px;
-    color: #fff;
-    font-weight: bold;
-  }
-
-  .product-card .pricing span.plan-price {
-    font-size: 1.1em;
-    flex: 0 0 auto;
-    margin-right: 8px;
-    color: #ff4444;
-    font-weight: bold;
-  }
-
-  .product-card .pricing a.pay-now {
-    flex: 0 0 auto;
-    min-width: 110px;
-    padding: 8px 0;
+  .product-card a.pay-now {
+    display: inline-block;
     background: #ff4444;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
     font-weight: bold;
     text-align: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .product-card a.pay-now {
+      width: 100% !important;
+      max-width: 280px;
+      margin: 10px auto 0;
+      display: block;
+    }
   }
 </style>
 
@@ -530,10 +514,13 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- Pricing & Pay Button -->
-  <div class="pricing">
-    <span class="plan-name">Conversion Tune-Up</span>
-    <span class="plan-price">$48</span>
+  <!-- Price -->
+  <div style="text-align:center; margin-top:20px; font-size:1.2em;">
+    <span style="color:#ff4444; font-weight:bold;">$48</span>
+  </div>
+
+  <!-- Pay Button -->
+  <div style="text-align:center;">
     <a href="https://buy.stripe.com/3cI6oG0F34TW35Jeo733X0d"
        target="_blank"
        class="pay-now">
@@ -551,7 +538,6 @@ src="https://www.facebook.com/tr?id=1089039574891097&ev=PageView&noscript=1"
   }
 </script>
 <!-- End Script🔴: Conversion Tune-Up -->
-
 
 <!-- Level 2 intro to Conversion Rebuild & Launch block -->
 <section style="background:#222; color:#fff; text-align:center; padding:1em 0; margin:0;">
